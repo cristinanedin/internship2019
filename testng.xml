@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Internship UI Automation Tests" parallel="methods" verbose="10" configfailurepolicy="continue">
+    <test name="Internship_UI_automation_tests">
+        <packages>
+        <package name="Internship.tests.*"/>
+        </packages>
+    </test>
+</suite>
