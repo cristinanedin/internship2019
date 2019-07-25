@@ -8,15 +8,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginPageTest extends TestBase {
-    @Test (testName = "Open Login page",
-        description = "Open page and verify login")
+
+    @Test(testName = "Open Login page",
+            description = "Open page and verify login")
     public void checkLoginPage() {
 
         LoginPage loginPage = new Homepage().clickLoginButton();
 
         loginPage.enterEmail(GlobalProperties.USERNAME_VALUE)
-            .enterPassword(GlobalProperties.PASSWORD_VALUE)
-            .clickLogInButton();
+                .enterPassword(GlobalProperties.PASSWORD_VALUE)
+                .clickLogInButton();
         Assert.assertTrue(loginPage.isUserLoggedIn(), "User is not logged in");
 
     }
