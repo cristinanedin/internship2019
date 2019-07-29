@@ -7,6 +7,7 @@ import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static internship.framework.core.utility.ElementUtils.clickOn;
 import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 public class Homepage extends PageBase {
@@ -21,6 +22,12 @@ public class Homepage extends PageBase {
     @FindBy(xpath = "//div[text()='Login']")
     private WebElement loginButton;
 
+    @FindBy(css = "a[title=Register]")
+    private WebElement registerButton;
+
+    @FindBy(xpath = "//a[@title='My Account']")
+    private WebElement myAccountLabel;
+
     @Override
     public void open() {
         super.open();
@@ -33,7 +40,17 @@ public class Homepage extends PageBase {
 
     public LoginPage clickLoginButton() {
         ProjectLogger.info("Navigate to Login Page");
-        ElementUtils.clickOn(loginButton);
+        clickOn(loginButton);
         return new LoginPage();
+    }
+
+    public RegisterPage clickRegisterButton() {
+        ProjectLogger.info("Navigate to Register page");
+        clickOn(registerButton);
+        return new RegisterPage();
+    }
+
+    public boolean isMyAccountDisplayed() {
+        return doesAppear(myAccountLabel);
     }
 }
