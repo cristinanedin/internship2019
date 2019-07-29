@@ -25,7 +25,6 @@ public class Driver {
 
     public static void remove() {
         if (driver.get().webDriver != null) {
-            driver.get().webDriver.close();
             driver.get().webDriver.quit();
         }
         driver.remove();

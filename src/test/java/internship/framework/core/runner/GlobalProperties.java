@@ -2,6 +2,8 @@ package internship.framework.core.runner;
 
 import internship.framework.core.utility.PropertiesReader;
 
+import static org.apache.commons.lang.math.RandomUtils.nextInt;
+
 public class GlobalProperties {
 
     private static PropertiesReader configProperties = new PropertiesReader("config.properties");
@@ -19,4 +21,10 @@ public class GlobalProperties {
     public static final String PASSWORD_VALUE = configProperties.getPropertyValue("password");
 
     public static final String BASE_URL = configProperties.getPropertyValue("base.url");
+
+    public static final String USERNAME_REGISTER_VALUE = configProperties.getPropertyValue("usernameRegister")  + nextInt(1000000) + "@gmail.com";
+
+    public static final String FIRSTNAME__VALUE = configProperties.getPropertyValue("firstName");
+
+    public static final String LASTNAME_VALUE = configProperties.getPropertyValue("lastName");
 }

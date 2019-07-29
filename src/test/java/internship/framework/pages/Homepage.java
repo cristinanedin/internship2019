@@ -2,9 +2,11 @@ package internship.framework.pages;
 
 import internship.framework.core.PageBase;
 import internship.framework.core.utility.NavigationUtils;
+import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static internship.framework.core.utility.ElementUtils.clickOn;
 import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 public class Homepage extends PageBase {
@@ -13,8 +15,14 @@ public class Homepage extends PageBase {
         super();
     }
 
-    @FindBy (xpath = "//a[@class = 'header-logobar__link']")
+    @FindBy(xpath = "//a[@class = 'header-logobar__link']")
     private WebElement telegraphLink;
+
+    @FindBy(css = "a[title=Register]")
+    private WebElement registerButton;
+
+    @FindBy(xpath = "//a[@title='My Account']")
+    private WebElement myAccountLabel;
 
     @Override
     public void open() {
@@ -24,5 +32,15 @@ public class Homepage extends PageBase {
 
     public boolean isTelegraphLogoDisplayed() {
         return doesAppear(telegraphLink);
+    }
+
+    public RegisterPage clickRegisterButton() {
+        ProjectLogger.info("Navigate to Register page");
+        clickOn(registerButton);
+        return new RegisterPage();
+    }
+
+    public boolean isUserRegisterComplete() {
+        return doesAppear(myAccountLabel);
     }
 }
