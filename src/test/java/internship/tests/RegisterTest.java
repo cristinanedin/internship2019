@@ -27,7 +27,7 @@ public class RegisterTest extends TestBase {
                 .enterLastName(LASTNAME_VALUE)
                 .clickCompleteRegisterButton();
 
-        softAssert.assertTrue(new Homepage().isUserRegisterComplete(), "'My account' label is not displayed");
+        softAssert.assertTrue(new Homepage().isMyAccountDisplayed(), "'My account' label is not displayed");
 
         softAssert.assertAll();
     }

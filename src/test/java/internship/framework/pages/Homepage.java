@@ -50,7 +50,7 @@ public class Homepage extends PageBase {
         return new RegisterPage();
     }
 
-    public boolean isUserRegisterComplete() {
+    public boolean isMyAccountDisplayed() {
         return doesAppear(myAccountLabel);
     }
 }
