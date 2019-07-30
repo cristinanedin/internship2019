@@ -1,6 +1,7 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
+import internship.framework.core.utility.NavigationUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,7 +10,6 @@ import static internship.framework.core.utility.ElementUtils.*;
 public class RegisterCompletePage extends PageBase {
     public RegisterCompletePage() {
         super();
-        super.open();
     }
 
     @FindBy(xpath = "//input[@name='firstName']")
