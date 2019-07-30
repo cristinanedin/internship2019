@@ -14,6 +14,7 @@ public class Homepage extends PageBase {
 
     public Homepage() {
         super();
+        super.open();
     }
 
     @FindBy(xpath = "//a[@class = 'header-logobar__link']")

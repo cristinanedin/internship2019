@@ -9,6 +9,7 @@ import static internship.framework.core.utility.ElementUtils.*;
 public class RegisterCompletePage extends PageBase {
     public RegisterCompletePage() {
         super();
+        super.open();
     }
 
     @FindBy(xpath = "//input[@name='firstName']")

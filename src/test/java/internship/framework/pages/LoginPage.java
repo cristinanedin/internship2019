@@ -13,6 +13,7 @@ public class LoginPage extends PageBase {
 
     public LoginPage() {
         super();
+        super.open();
     }
 
     @FindBy(id = "email")

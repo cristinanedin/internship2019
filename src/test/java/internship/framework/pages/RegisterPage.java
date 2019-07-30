@@ -11,6 +11,7 @@ import static internship.framework.core.utility.ElementUtils.fillInWithValue;
 public class RegisterPage extends PageBase {
     public RegisterPage() {
         super();
+        super.open();
     }
 
     @FindBy(xpath = "//input[@type='email']")
