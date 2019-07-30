@@ -26,8 +26,7 @@ public class Homepage extends PageBase {
     @FindBy(css = "a[title=Register]")
     private WebElement registerButton;
 
-    @FindBy(xpath = "//a[@title='My Account']")
-    private WebElement myAccountLabel;
+
 
     @Override
     public void open() {
@@ -51,7 +50,5 @@ public class Homepage extends PageBase {
         return new RegisterPage();
     }
 
-    public boolean isMyAccountDisplayed() {
-        return doesAppear(myAccountLabel);
-    }
+
 }

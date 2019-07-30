@@ -18,7 +18,7 @@ public class LoginPageTest extends TestBase {
         loginPage.enterEmail(GlobalProperties.USERNAME_VALUE)
                 .enterPassword(GlobalProperties.PASSWORD_VALUE)
                 .clickLogInButton();
-        Assert.assertTrue(new Homepage().isMyAccountDisplayed(), "User is not logged in");
+        Assert.assertTrue(loginPage.isMyAccountDisplayed(), "User is not logged in");
 
     }
 }

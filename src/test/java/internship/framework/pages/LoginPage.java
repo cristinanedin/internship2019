@@ -19,11 +19,14 @@ public class LoginPage extends PageBase {
     @FindBy(id = "email")
     private WebElement emailInputField;
 
-    @FindBy(id = "password")
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement passwordInputField;
 
     @FindBy(xpath = "/html/body/div[2]/div/div/div/div/div[2]/form/div[4]/button")
     private WebElement loginButton;
+
+    @FindBy(xpath = "//a[@title='My Account']")
+    private WebElement myAccountLabel;
 
     public LoginPage enterEmail(String email) {
         ProjectLogger.info("Enter email address");
@@ -41,5 +44,9 @@ public class LoginPage extends PageBase {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton);
 
+    }
+
+    public boolean isMyAccountDisplayed() {
+        return doesAppear(myAccountLabel);
     }
 }

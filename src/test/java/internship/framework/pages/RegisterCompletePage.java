@@ -24,6 +24,9 @@ public class RegisterCompletePage extends PageBase {
     @FindBy(xpath = "//div[@class='register-complete-content-form-button']")
     private WebElement buttonCompleteRegisterCheck;
 
+    @FindBy(xpath = "//a[@title='My Account']")
+    private WebElement myAccountLabel;
+
 
     public RegisterCompletePage enterFirstName(String firstName) {
         fillInWithValue(firstNameInputField, firstName);
@@ -42,5 +45,9 @@ public class RegisterCompletePage extends PageBase {
 
     public boolean isUserRegister() {
         return doesAppear(buttonCompleteRegisterCheck);
+    }
+
+    public boolean isMyAccountDisplayed() {
+        return doesAppear(myAccountLabel);
     }
 }
