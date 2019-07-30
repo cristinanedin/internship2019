@@ -9,6 +9,7 @@ import static internship.framework.core.utility.ElementUtils.*;
 public class RegisterCompletePage extends PageBase {
     public RegisterCompletePage() {
         super();
+        super.open();
     }
 
     @FindBy(xpath = "//input[@name='firstName']")
@@ -22,6 +23,9 @@ public class RegisterCompletePage extends PageBase {
 
     @FindBy(xpath = "//div[@class='register-complete-content-form-button']")
     private WebElement buttonCompleteRegisterCheck;
+
+    @FindBy(xpath = "//a[@title='My Account']")
+    private WebElement myAccountLabel;
 
 
     public RegisterCompletePage enterFirstName(String firstName) {
@@ -41,5 +45,9 @@ public class RegisterCompletePage extends PageBase {
 
     public boolean isUserRegister() {
         return doesAppear(buttonCompleteRegisterCheck);
+    }
+
+    public boolean isMyAccountDisplayed() {
+        return doesAppear(myAccountLabel);
     }
 }

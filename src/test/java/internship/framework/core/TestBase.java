@@ -20,7 +20,6 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URI;
 
-import static internship.framework.core.CommonSteps.openPage;
 import static internship.framework.core.utility.Constants.CHROME;
 import static internship.framework.core.utility.NavigationUtils.setWindowSize;
 
@@ -32,7 +31,6 @@ public class TestBase {
         ProjectLogger.set(method);
         initializeExtentTest(method);
         rootInit(method);
-        openPage();
     }
 
     private void initializeExtentTest(Method method) {
