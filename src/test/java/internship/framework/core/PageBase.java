@@ -2,7 +2,9 @@ package internship.framework.core;
 
 import internship.framework.core.runner.GlobalProperties;
 import internship.framework.core.utility.Driver;
+import internship.framework.core.utility.NavigationUtils;
 import internship.framework.core.utility.PageUrl;
+import internship.framework.pages.Homepage;
 import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,6 +26,7 @@ public abstract class PageBase {
     }
 
     public PageBase() {
+
         this(false);
     }
 
@@ -47,7 +50,13 @@ public abstract class PageBase {
         return baseUrl + pageUrl;
     }
 
-    public void open() {
+    public <T extends PageBase> T  openPage() {
+        this.open();
+        NavigationUtils.deleteCookiesAndRefresh();
+        return (T)this;
+    }
+
+    private void open() {
         Driver.get().get(getUrl());
         WebDriverWait wait = new WebDriverWait(Driver.get(), 30);
         wait.until(ExpectedConditions.urlContains(getUrl()));

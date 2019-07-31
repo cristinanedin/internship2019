@@ -1,8 +1,10 @@
 package internship.tests;
 
+import internship.framework.core.PageBase;
 import internship.framework.core.TestBase;
 import internship.framework.pages.Homepage;
 import internship.framework.pages.RegisterCompletePage;
+import internship.framework.pages.RegisterPage;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -16,10 +18,13 @@ public class RegisterTest extends TestBase {
     public void checkRegisterTest() {
         SoftAssert softAssert = new SoftAssert();
 
-        RegisterCompletePage registerCompletePage = new Homepage().clickRegisterButton()
-                .enterEmailRegister(USERNAME_REGISTER_VALUE)
+        RegisterPage registerPage = new RegisterPage().openPage();
+        PageBase pageBase = new Homepage().clickRegisterButton();
+        registerPage.enterEmailRegister(USERNAME_REGISTER_VALUE)
                 .enterPasswordRegister(PASSWORD_VALUE)
                 .clickRegisterButtonOnForm();
+
+        RegisterCompletePage registerCompletePage = new RegisterCompletePage();
 
         softAssert.assertTrue(registerCompletePage.isUserRegister(), "User is not registered");
 

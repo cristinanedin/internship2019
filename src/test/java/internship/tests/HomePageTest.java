@@ -1,5 +1,6 @@
 package internship.tests;
 
+import internship.framework.core.PageBase;
 import internship.framework.core.TestBase;
 import internship.framework.pages.Homepage;
 import org.testng.Assert;
@@ -11,7 +12,8 @@ public class HomePageTest extends TestBase {
         description = "Open page and verify logo")
     public void checkHomePageLogo() {
 
-        Assert.assertTrue(new Homepage().isTelegraphLogoDisplayed(), "Page is not opened correctly");
+        Homepage homepage = new Homepage().openPage();
+        Assert.assertTrue(homepage.isTelegraphLogoDisplayed(), "Page is not opened correctly");
     }
 
 }

@@ -1,6 +1,7 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
+import internship.framework.core.utility.NavigationUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,6 @@ import static internship.framework.core.utility.ElementUtils.fillInWithValue;
 public class RegisterPage extends PageBase {
     public RegisterPage() {
         super();
-        super.open();
     }
 
     @FindBy(xpath = "//input[@type='email']")

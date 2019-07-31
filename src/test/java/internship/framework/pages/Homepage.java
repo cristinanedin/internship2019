@@ -12,27 +12,14 @@ import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 public class Homepage extends PageBase {
 
-    public Homepage() {
-        super();
-        super.open();
-    }
-
     @FindBy(xpath = "//a[@class = 'header-logobar__link']")
     private WebElement telegraphLink;
 
     @FindBy(xpath = "//div[text()='Login']")
     private WebElement loginButton;
 
-    @FindBy(css = "a[title=Register]")
+    @FindBy(xpath = "//ul[contains(@class,'header-nav-global__list header-nav-global__engagement')]//li[3]//a[1]")
     private WebElement registerButton;
-
-
-
-    @Override
-    public void open() {
-        super.open();
-        NavigationUtils.deleteCookiesAndRefresh();
-    }
 
     public boolean isTelegraphLogoDisplayed() {
         return doesAppear(telegraphLink);
@@ -49,6 +36,4 @@ public class Homepage extends PageBase {
         clickOn(registerButton);
         return new RegisterPage();
     }
-
-
 }

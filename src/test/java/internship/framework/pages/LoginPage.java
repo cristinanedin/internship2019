@@ -2,6 +2,7 @@ package internship.framework.pages;
 
 import internship.framework.core.PageBase;
 import internship.framework.core.utility.ElementUtils;
+import internship.framework.core.utility.NavigationUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +12,7 @@ import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 public class LoginPage extends PageBase {
 
-    public LoginPage() {
-        super();
-        super.open();
-    }
+
 
     @FindBy(id = "email")
     private WebElement emailInputField;
@@ -22,11 +20,13 @@ public class LoginPage extends PageBase {
     @FindBy(xpath = "//input[@id='password']")
     private WebElement passwordInputField;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/div/div/div[2]/form/div[4]/button")
+    @FindBy(xpath = "//button[@class='button primary']")
     private WebElement loginButton;
 
     @FindBy(xpath = "//a[@title='My Account']")
     private WebElement myAccountLabel;
+    @FindBy(xpath = "//div[text()='Login']")
+    private WebElement loginButton2;
 
     public LoginPage enterEmail(String email) {
         ProjectLogger.info("Enter email address");
@@ -43,6 +43,11 @@ public class LoginPage extends PageBase {
     public void clickLogInButton() {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton);
+
+    }
+    public void clickLogInButtonHome() {
+        ProjectLogger.info("Login site");
+        ElementUtils.clickOn(loginButton2);
 
     }
 
