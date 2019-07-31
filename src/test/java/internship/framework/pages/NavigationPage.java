@@ -2,9 +2,11 @@ package internship.framework.pages;
 
 import internship.framework.core.PageBase;
 import internship.framework.core.utility.Driver;
-import internship.framework.core.utility.ElementUtils;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static internship.framework.core.utility.ElementUtils.clickOn;
 
 public class NavigationPage extends PageBase {
 
@@ -68,35 +70,37 @@ public class NavigationPage extends PageBase {
     public void goToPage(Sections clickButton) {
         switch (clickButton) {
             case NEWS:
-                ElementUtils.clickOn(buttonNews);
+                clickOn(buttonNews);
                 break;
             case POLITICS:
-                ElementUtils.clickOn(buttonPolitics);
+                clickOn(buttonPolitics);
                 break;
             case SPORT:
-                ElementUtils.clickOn(buttonTechnology);
+                clickOn(buttonSport);
                 break;
             case TECHNOLOGY:
-                ElementUtils.clickOn(buttonSport);
+                clickOn(buttonTechnology);
                 break;
             case BUSINESS:
-                ElementUtils.clickOn(buttonBusiness);
+                clickOn(buttonBusiness);
                 break;
             case MONEY:
-                ElementUtils.clickOn(buttonMoney);
+                clickOn(buttonMoney);
                 break;
             case OPINION:
-                ElementUtils.clickOn(buttonOpinion);
+                clickOn(buttonOpinion);
                 break;
             case LIFESTYLE:
-                ElementUtils.clickOn(buttonLifestyle);
+                clickOn(buttonLifestyle);
                 break;
             case CULTURE:
-                ElementUtils.clickOn(buttonCulture);
+                clickOn(buttonCulture);
                 break;
             case TRAVEL:
-                ElementUtils.clickOn(buttonTravel);
+                clickOn(buttonTravel);
                 break;
+            default:
+                throw new NoSuchElementException("Invalid option");
         }
     }
 }

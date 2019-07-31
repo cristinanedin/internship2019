@@ -2,14 +2,10 @@ package internship.tests;
 
 import internship.framework.core.TestBase;
 import internship.framework.core.utility.DataProviders;
-import internship.framework.core.utility.Driver;
 import internship.framework.pages.NavigationPage;
 import internship.framework.pages.NavigationPage.Sections;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static internship.framework.core.runner.GlobalProperties.*;
 
 public class NavigationPageTest extends TestBase {
 
