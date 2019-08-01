@@ -15,9 +15,8 @@ public class ForgotPasswordValidEmailTest extends TestBase {
     {
         SoftAssert softAssert = new SoftAssert();
         LoginPage loginPage = new LoginPage().openPage();
-        loginPage.clickLogInButtonHome()
-                 .clickForgotPassword();
-        ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
+                loginPage.clickLogInButtonHome();
+        ResetPasswordPage resetPasswordPage = new LoginPage().clickForgotPassword();
         softAssert.assertTrue(resetPasswordPage.isResetPasswordTextDisplayed(), "Failed to display forgot password page.");
         resetPasswordPage.enterValidPassword()
                          .clickResetPasswordButton();

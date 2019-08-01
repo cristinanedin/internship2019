@@ -47,17 +47,17 @@ public class LoginPage extends PageBase {
 
     }
 
-    public LoginPage clickLogInButtonHome() {
+    public ResetPasswordPage clickLogInButtonHome() {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton2);
-        return this;
+        return new ResetPasswordPage();
 
     }
 
-    public LoginPage clickForgotPassword() {
+    public ResetPasswordPage clickForgotPassword() {
         ProjectLogger.info("Click forgot password button");
         ElementUtils.clickOn(forgotPassword);
-        return this;
+        return new ResetPasswordPage();
     }
 
     public boolean isMyAccountDisplayed() {
