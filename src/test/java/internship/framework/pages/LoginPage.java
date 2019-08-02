@@ -47,10 +47,10 @@ public class LoginPage extends PageBase {
 
     }
 
-    public ResetPasswordPage clickLogInButtonHome() {
+    public LoginPage clickLogInButtonHome() {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton2);
-        return new ResetPasswordPage();
+        return this;
 
     }
 
