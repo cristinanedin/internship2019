@@ -2,7 +2,6 @@ package internship.framework.pages;
 
 import internship.framework.core.PageBase;
 import internship.framework.core.utility.ElementUtils;
-import internship.framework.core.utility.NavigationUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +10,6 @@ import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 
 public class LoginPage extends PageBase {
-
-
 
     @FindBy(id = "email")
     private WebElement emailInputField;
@@ -27,6 +24,10 @@ public class LoginPage extends PageBase {
     private WebElement myAccountLabel;
     @FindBy(xpath = "//div[text()='Login']")
     private WebElement loginButton2;
+
+    @FindBy(css = "a.form-container-box-content-info-text")
+    private WebElement forgotPassword;
+
 
     public LoginPage enterEmail(String email) {
         ProjectLogger.info("Enter email address");
@@ -45,13 +46,22 @@ public class LoginPage extends PageBase {
         ElementUtils.clickOn(loginButton);
 
     }
-    public void clickLogInButtonHome() {
+
+    public LoginPage clickLogInButtonHome() {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton2);
+        return this;
 
+    }
+
+    public ResetPasswordPage clickForgotPassword() {
+        ProjectLogger.info("Click forgot password button");
+        ElementUtils.clickOn(forgotPassword);
+        return new ResetPasswordPage();
     }
 
     public boolean isMyAccountDisplayed() {
         return doesAppear(myAccountLabel);
     }
+
 }
