@@ -66,25 +66,4 @@ public class ResetPasswordPage extends PageBase {
         ProjectLogger.info("Check if incorrect email format is displayed.");
         return ElementUtils.doesAppear(incorrectEmailFormatText);
     }
-
-    public ResetPasswordPage checkForgotPasswordTests(boolean validPassword)
-    {
-        SoftAssert softAssert = new SoftAssert();
-        LoginPage loginPage = new LoginPage().openPage();
-        ResetPasswordPage resetPasswordPage = loginPage.clickLogInButtonHome()
-                                                       .clickForgotPassword();
-        softAssert.assertTrue(resetPasswordPage.isResetPasswordTextDisplayed(), "Failed to display forgot password page.");
-        if (validPassword)
-        {
-            resetPasswordPage.enterValidPassword().clickResetPasswordButton();
-            softAssert.assertTrue(resetPasswordPage.isResetConfirmationDisplayed(), "Failed to display reset confirmation page.");
-        }
-        else
-        {
-            resetPasswordPage.enterInvalidPassword().clickResetPasswordButton();
-            softAssert.assertTrue(resetPasswordPage.isIncorrectEmailFormatDisplayed(), "Failed to display reset confirmation page.");
-        }
-        softAssert.assertAll();
-        return this;
-    }
 }
