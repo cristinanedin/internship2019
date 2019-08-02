@@ -6,6 +6,9 @@ import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.asserts.SoftAssert;
+
+import java.lang.reflect.Method;
 
 import static internship.framework.core.utility.ElementUtils.doesAppear;
 
@@ -64,4 +67,24 @@ public class ResetPasswordPage extends PageBase {
         return ElementUtils.doesAppear(incorrectEmailFormatText);
     }
 
+    public ResetPasswordPage checkForgotPasswordTests(boolean validPassword)
+    {
+        SoftAssert softAssert = new SoftAssert();
+        LoginPage loginPage = new LoginPage().openPage();
+        ResetPasswordPage resetPasswordPage = loginPage.clickLogInButtonHome()
+                                                       .clickForgotPassword();
+        softAssert.assertTrue(resetPasswordPage.isResetPasswordTextDisplayed(), "Failed to display forgot password page.");
+        if (validPassword)
+        {
+            resetPasswordPage.enterValidPassword().clickResetPasswordButton();
+            softAssert.assertTrue(resetPasswordPage.isResetConfirmationDisplayed(), "Failed to display reset confirmation page.");
+        }
+        else
+        {
+            resetPasswordPage.enterInvalidPassword().clickResetPasswordButton();
+            softAssert.assertTrue(resetPasswordPage.isIncorrectEmailFormatDisplayed(), "Failed to display reset confirmation page.");
+        }
+        softAssert.assertAll();
+        return this;
+    }
 }
