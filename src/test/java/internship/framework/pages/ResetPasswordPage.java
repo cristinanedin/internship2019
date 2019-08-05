@@ -63,5 +63,4 @@ public class ResetPasswordPage extends PageBase {
         ProjectLogger.info("Check if incorrect email format is displayed.");
         return ElementUtils.doesAppear(incorrectEmailFormatText);
     }
-
 }
