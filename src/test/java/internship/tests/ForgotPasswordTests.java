@@ -1,10 +1,8 @@
 package internship.tests;
 
 import internship.framework.core.TestBase;
-import internship.framework.core.utility.Driver;
 import internship.framework.pages.LoginPage;
 import internship.framework.pages.ResetPasswordPage;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -36,14 +34,12 @@ public class ForgotPasswordTests extends TestBase {
     @Test(testName = "Forgot Password Valid Email Test",
             description = "Testing Forgot Password on Login Page using Valid Email")
     public void TestingForgotPasswordValidEmail() {
-        ForgotPasswordTests forgotPasswordTests = new ForgotPasswordTests();
-        forgotPasswordTests.checkForgotPasswordTests(true);
+        checkForgotPasswordTests(true);
     }
 
     @Test(testName = "Forgot Password Invalid Email", description = "Testing Forgot Password Invalid Email")
     public void TestingForgotPasswordInvalidEmail() {
-        ForgotPasswordTests forgotPasswordTests = new ForgotPasswordTests();
-        forgotPasswordTests.checkForgotPasswordTests(false);
+        checkForgotPasswordTests(false);
     }
 
     @Override

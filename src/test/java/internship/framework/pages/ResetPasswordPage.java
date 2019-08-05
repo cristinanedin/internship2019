@@ -6,9 +6,6 @@ import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.asserts.SoftAssert;
-
-import java.lang.reflect.Method;
 
 import static internship.framework.core.utility.ElementUtils.doesAppear;
 
