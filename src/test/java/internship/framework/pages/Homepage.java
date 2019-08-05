@@ -1,7 +1,6 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,9 +19,6 @@ public class Homepage extends PageBase {
     @FindBy(xpath = "//ul[contains(@class,'header-nav-global__list header-nav-global__engagement')]//li[3]//a[1]")
     private WebElement registerButton;
 
-    @FindBy(css = "a[title='My Account']")
-    private WebElement myAccountButton;
-
     public boolean isTelegraphLogoDisplayed() {
         return doesAppear(telegraphLink);
     }
@@ -37,12 +33,5 @@ public class Homepage extends PageBase {
         ProjectLogger.info("Navigate to Register page");
         clickOn(registerButton);
         return new RegisterPage();
-    }
-
-    public MyAccountPage clickMyAccountButton()
-    {
-        ProjectLogger.info("Navigate to My Account Page");
-        ElementUtils.clickOn(myAccountButton);
-        return new MyAccountPage();
     }
 }

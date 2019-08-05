@@ -1,6 +1,8 @@
 package internship.tests;
 
 import internship.framework.core.TestBase;
+import internship.framework.core.runner.GlobalProperties;
+import internship.framework.pages.LoginPage;
 import internship.framework.pages.MyAccountPage;
 import internship.framework.pages.MynewslettersPage;
 import org.testng.annotations.AfterMethod;
@@ -14,13 +16,18 @@ public class MyNewslettersTest extends TestBase {
             description = "Testing My Newsletters functionality")
     public void TestingMyNewslettersFunctionality() {
         softAssert.set(new SoftAssert());
-        new LoginPageTest().checkLoginPage();
+        LoginPage loginPage=new LoginPage().openPage();
+        loginPage.clickLogInButtonHome();
+        loginPage.enterEmail(GlobalProperties.USERNAME_VALUE)
+                 .enterPassword(GlobalProperties.PASSWORD_VALUE)
+                 .clickLogInButton()
+                 .clickMyAccountButton();
         MynewslettersPage mynewslettersPage = new MyAccountPage().clickMyNewslettersButton()
-                .addNewsletters();
+                                                                 .addNewsletters();
         softAssert.get().assertTrue(mynewslettersPage.checkSubscribeNewsletters(),
                 "My newsletters element is not displayed.");
         mynewslettersPage.unsubscribeNewsletters()
-                .clickRightTopArrow();
+                         .clickRightTopArrow();
         softAssert.get().assertAll();
     }
 

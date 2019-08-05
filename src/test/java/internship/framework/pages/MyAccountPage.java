@@ -13,7 +13,6 @@ public class MyAccountPage extends PageBase {
 
     public MynewslettersPage clickMyNewslettersButton() {
         ProjectLogger.info("Navigate to My newsletters Page");
-        new Homepage().clickMyAccountButton();
         ElementUtils.clickOn(myNewslettersButton);
         return new MynewslettersPage();
     }
