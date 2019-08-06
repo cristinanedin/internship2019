@@ -22,6 +22,7 @@ public class LoginPage extends PageBase {
 
     @FindBy(xpath = "//a[@title='My Account']")
     private WebElement myAccountLabel;
+
     @FindBy(xpath = "//div[text()='Login']")
     private WebElement loginButton2;
 
@@ -41,9 +42,10 @@ public class LoginPage extends PageBase {
         return this;
     }
 
-    public void clickLogInButton() {
+    public LoginPage clickLogInButton() {
         ProjectLogger.info("Login site");
         ElementUtils.clickOn(loginButton);
+        return this;
 
     }
 
@@ -58,6 +60,13 @@ public class LoginPage extends PageBase {
         ProjectLogger.info("Click forgot password button");
         ElementUtils.clickOn(forgotPassword);
         return new ResetPasswordPage();
+    }
+
+    public LoginPage clickMyAccountButton()
+    {
+        ProjectLogger.info("Click My Account button.");
+        ElementUtils.clickOn(myAccountLabel);
+        return this;
     }
 
     public boolean isMyAccountDisplayed() {
