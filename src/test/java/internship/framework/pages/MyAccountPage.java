@@ -40,7 +40,7 @@ public class MyAccountPage extends PageBase {
 
     }
 
-    public String checkValidateNewsletterText()
+    public String getValidateNewsletterText()
     {
         ProjectLogger.info("Check if validate newsletter text matches.");
         return ElementUtils.getElementText(validateNewsletter);

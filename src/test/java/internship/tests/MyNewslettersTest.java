@@ -46,7 +46,7 @@ public class MyNewslettersTest extends TestBase {
                                                          .addNewsletter();
         softAssert.get().assertTrue(myAccountPage.isValidateNewsletterDisplayed(),
                 "Validate newsletter element is not displayed.");
-        softAssert.get().assertTrue(myAccountPage.checkValidateNewsletterText().contains("We've added"),
+        softAssert.get().assertTrue(myAccountPage.getValidateNewsletterText().contains(GlobalProperties.ADD_NEWSLETTER_VALID_TEXT),
                 "Validating text from adding newsletter has failed.");
         softAssert.get().assertAll();
     }
