@@ -8,20 +8,23 @@ import org.openqa.selenium.support.FindBy;
 
 public class MynewslettersPage extends PageBase {
 
-    @FindBy(xpath = "(//button[@class='button primary'])[1]")
+    @FindBy(xpath = "//div[@class='account-newsletters-list']//div[1]//div[1]//button[1]")
     private WebElement firstSubscribeButton;
 
-    @FindBy(xpath = "(//button[@class='button primary'])[2]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[1]//button[1]")
     private WebElement secondSubscribeButton;
 
-    @FindBy(xpath = "(//button[@class='button primary'])[3]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[3]//div[1]//button[1]")
     private WebElement thirdSubscribeButton;
 
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement myNewslettersElement;
 
-    @FindBy(xpath = "(//button[@class='button default'])[1]")
-    private WebElement unsubscribeNewsletterButton;
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[2]//div[1]//button[1]")
+    private WebElement unsubscribeSecondNewsletterButton;
+
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[3]//div[1]//button[1]")
+    private WebElement unsubscribeThirdNewsletterButton;
 
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement topRightArrow;
@@ -41,8 +44,8 @@ public class MynewslettersPage extends PageBase {
 
     public MynewslettersPage unsubscribeNewsletters() {
         ProjectLogger.info("Unsubscribe two newsletters.");
-        ElementUtils.clickOn(unsubscribeNewsletterButton);
-        ElementUtils.clickOn(unsubscribeNewsletterButton);
+        ElementUtils.clickOn(unsubscribeThirdNewsletterButton);
+        ElementUtils.clickOn(unsubscribeSecondNewsletterButton);
         return this;
     }
 
