@@ -40,10 +40,10 @@ public class MyAccountPage extends PageBase {
 
     }
 
-    public boolean checkValidateNewsletterText()
+    public String checkValidateNewsletterText()
     {
         ProjectLogger.info("Check if validate newsletter text matches.");
-        return ElementUtils.getElementText(validateNewsletter).contains("We've added");
+        return ElementUtils.getElementText(validateNewsletter);
     }
 
     public MyAccountPage navigateMyAccount()
