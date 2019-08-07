@@ -11,9 +11,45 @@ public class MyAccountPage extends PageBase {
     @FindBy(css = "a[title='My newsletters']")
     private WebElement myNewslettersButton;
 
-    public MynewslettersPage clickMyNewslettersButton() {
-        ProjectLogger.info("Navigate to My newsletters Page");
+    @FindBy(xpath = "//div[@class='newsletters-home-cards-content']//div[1]//div[1]//button[1]")
+    private WebElement firstNewsletterButton;
+
+    @FindBy(xpath = "//div[@class='toast-content']")
+    private WebElement validateNewsletter;
+
+    @FindBy(xpath = "//a[contains(text(),'My Account')]")
+    private WebElement MyAccountElement;
+
+    public MyAccountPage clickMyNewslettersButton() {
+        ProjectLogger.info("Navigate to My newsletters page.");
         ElementUtils.clickOn(myNewslettersButton);
-        return new MynewslettersPage();
+        return this;
+    }
+
+    public MyAccountPage addNewsletter()
+    {
+        ProjectLogger.info("Add newsletter.");
+        ElementUtils.clickOn(firstNewsletterButton);
+        return this;
+    }
+
+    public boolean isValidateNewsletterDisplayed()
+    {
+        ProjectLogger.info("Check if validate newsletter element is displayed.");
+        return ElementUtils.doesAppear(validateNewsletter);
+
+    }
+
+    public boolean checkValidateNewsletterText()
+    {
+        ProjectLogger.info("Check if validate newsletter text matches.");
+        return ElementUtils.getElementText(validateNewsletter).contains("We've added");
+    }
+
+    public MyAccountPage navigateMyAccount()
+    {
+        ProjectLogger.info("Navigate to My Account tab.");
+        ElementUtils.clickOn(MyAccountElement);
+        return this;
     }
 }
