@@ -11,6 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 public class MyNewslettersTest extends TestBase {
     private final ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
+    private final String ADD_NEWSLETTER_VALID_TEXT = "We've added";
 
     private void login()
     {
@@ -46,7 +47,7 @@ public class MyNewslettersTest extends TestBase {
                                                          .addNewsletter();
         softAssert.get().assertTrue(myAccountPage.isValidateNewsletterDisplayed(),
                 "Validate newsletter element is not displayed.");
-        softAssert.get().assertTrue(myAccountPage.getValidateNewsletterText().contains(GlobalProperties.ADD_NEWSLETTER_VALID_TEXT),
+        softAssert.get().assertTrue(myAccountPage.getValidateNewsletterText().contains(ADD_NEWSLETTER_VALID_TEXT),
                 "Validating text from adding newsletter has failed.");
         softAssert.get().assertAll();
     }

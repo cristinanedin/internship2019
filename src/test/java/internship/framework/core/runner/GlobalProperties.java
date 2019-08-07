@@ -29,6 +29,4 @@ public class GlobalProperties {
     public static final String LASTNAME_VALUE = configProperties.getPropertyValue("lastName");
 
     public static final String INVALID_EMAIL_ADDRESS = configProperties.getPropertyValue("invalidEmailAddress");
-
-    public static final String ADD_NEWSLETTER_VALID_TEXT = configProperties.getPropertyValue("addNewsletterValidText");
 }
