@@ -1,15 +1,12 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.Driver;
 import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import internship.framework.core.utility.TestData;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsPage extends PageBase {
 

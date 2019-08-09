@@ -11,13 +11,12 @@ import org.testng.asserts.SoftAssert;
 import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsTest extends TestBase {
-    private ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
+    public static ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
 
     @Test(testName = "Personal details test",
             description = "Testing personal details.")
     public void checkPersonalDetailsFunctionality() {
-        softAssert.set(new SoftAssert());
-        TestUtils.login();
+        TestUtils.login("stroeradu03@gmail.com", "qwer1234");
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails();
         editPersonalDetails();
         softAssert.get().assertTrue(personalDetailsPage.isValidateChangesDisplayed(),
