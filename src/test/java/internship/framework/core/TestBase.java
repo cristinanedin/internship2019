@@ -5,6 +5,7 @@ import internship.framework.core.runner.GlobalProperties;
 import internship.framework.core.runner.TestBaseListener;
 import internship.framework.core.utility.Driver;
 import internship.framework.core.utility.ProjectLogger;
+import internship.tests.PersonalDetailsTest;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.BrowserType;
@@ -15,6 +16,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -31,6 +33,7 @@ public class TestBase {
         ProjectLogger.set(method);
         initializeExtentTest(method);
         rootInit(method);
+        PersonalDetailsTest.softAssert.set(new SoftAssert());
     }
 
     private void initializeExtentTest(Method method) {
