@@ -91,7 +91,7 @@ public class PersonalDetailsPage extends PageBase {
     public PersonalDetailsPage selectTitle() {
         ProjectLogger.info("Select title.");
         Select select = new Select(selectTitleElement);
-        select.selectByVisibleText("Mr");
+        select.selectByVisibleText(TestData.YOUR_DETAILS_TITLE);
         return this;
     }
 
@@ -122,7 +122,7 @@ public class PersonalDetailsPage extends PageBase {
     public PersonalDetailsPage selectCountry() {
         ProjectLogger.info("Select country.");
         Select select = new Select(countryElement);
-        select.selectByVisibleText("Romania");
+        select.selectByVisibleText(TestData.YOUR_DETAILS_COUNTRY);
         return this;
     }
 
@@ -164,7 +164,6 @@ public class PersonalDetailsPage extends PageBase {
 
     private boolean isFirstCheckBoxSelected() {
         ProjectLogger.info("Check if first contact checkbox is selected.");
-        Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return Boolean.parseBoolean(checkFirstCheckboxElement.getAttribute("checked"));
     }
 
@@ -184,8 +183,8 @@ public class PersonalDetailsPage extends PageBase {
     }
 
     public boolean areALLCheckboxesSelected() {
-        return isFirstCheckBoxSelected() & isSecondCheckBoxSelected()
-                & isThirdCheckBoxSelected() & isFourthCheckBoxSelected();
+        return isFirstCheckBoxSelected() && isSecondCheckBoxSelected()
+                && isThirdCheckBoxSelected() && isFourthCheckBoxSelected();
     }
 
 }

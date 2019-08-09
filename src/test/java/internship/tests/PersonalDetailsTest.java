@@ -1,12 +1,14 @@
 package internship.tests;
 
 import internship.framework.core.TestBase;
-import internship.framework.core.runner.GlobalProperties;
-import internship.framework.pages.LoginPage;
+import internship.framework.core.utility.Driver;
+import internship.framework.core.utility.TestUtils;
 import internship.framework.pages.PersonalDetailsPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsTest extends TestBase {
     private ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
@@ -15,14 +17,15 @@ public class PersonalDetailsTest extends TestBase {
             description = "Testing personal details.")
     public void checkPersonalDetailsFunctionality() {
         softAssert.set(new SoftAssert());
-        login();
+        TestUtils.login();
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails();
         editPersonalDetails();
         softAssert.get().assertTrue(personalDetailsPage.isValidateChangesDisplayed(),
                 "Valid changes element is not displayed.");
         personalDetailsPage.selectAllContactPreferences()
-                           .navigateSubscriptionDetailsTab()
-                           .navigatePersonalDetailsTab();
+                .navigateSubscriptionDetailsTab()
+                .navigatePersonalDetailsTab();
+        Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         softAssert.get().assertTrue(personalDetailsPage.areALLCheckboxesSelected(), "Not every checkbox is selected.");
         softAssert.get().assertAll();
     }
@@ -34,27 +37,16 @@ public class PersonalDetailsTest extends TestBase {
         super.tearDown();
     }
 
-    private void login()
-    {
-        LoginPage loginPage=new LoginPage().openPage();
-        loginPage.clickLogInButtonHome();
-        loginPage.enterEmail(GlobalProperties.USERNAME_VALUE)
-                .enterPassword(GlobalProperties.PASSWORD_VALUE)
-                .clickLogInButton()
-                .clickMyAccountButton();
-    }
-
-    private void editPersonalDetails()
-    {
+    private void editPersonalDetails() {
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage();
         personalDetailsPage.clickEditDetailsElement()
-                           .selectTitle()
-                           .fillWithValueFirstName()
-                           .fillWithValueLastName()
-                           .fillWithValueAddress()
-                           .fillWithValueCityTown()
-                           .selectCountry()
-                           .fillWithValueTelephone()
-                           .clickSaveChangesButton();
+                .selectTitle()
+                .fillWithValueFirstName()
+                .fillWithValueLastName()
+                .fillWithValueAddress()
+                .fillWithValueCityTown()
+                .selectCountry()
+                .fillWithValueTelephone()
+                .clickSaveChangesButton();
     }
 }
