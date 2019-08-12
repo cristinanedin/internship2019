@@ -1,6 +1,7 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
+import internship.framework.core.runner.GlobalProperties;
 import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import internship.framework.core.utility.TestData;
@@ -72,6 +73,24 @@ public class PersonalDetailsPage extends PageBase {
 
     @FindBy(xpath = "//input[@id='marketingSMSOptIn']")
     private WebElement checkFourthCheckboxElement;
+
+    @FindBy(xpath = "//a[contains(text(),'Change your email')]")
+    private WebElement changeEmailElement;
+
+    @FindBy(xpath = "//h2[contains(text(),'Please confirm your password to update your email')]")
+    private WebElement confirmPasswordText;
+
+    @FindBy(xpath = "//input[@id='password']")
+    private WebElement passwordElement;
+
+    @FindBy(xpath = "//button[@class='button primary']")
+    private WebElement continueButton;
+
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElement emailElement;
+
+    @FindBy(xpath = "//span[@class='top-edit-mode-buttons']//button[@class='button primary']")
+    private WebElement saveEmailChangesElement;
 
     public PersonalDetailsPage navigatePersonalDetails() {
         ProjectLogger.info("Navigate to Personal Details page.");
@@ -184,4 +203,37 @@ public class PersonalDetailsPage extends PageBase {
                 && isThirdCheckBoxSelected() && isFourthCheckBoxSelected();
     }
 
+    public PersonalDetailsPage clickChangeEmailLink() {
+        ProjectLogger.info("Navigate to change email page.");
+        ElementUtils.clickOn(changeEmailElement);
+        return this;
+    }
+
+    public String isConfirmPasswordTextDisplayed() {
+        ProjectLogger.info("Confirm password text is displayed.");
+        return ElementUtils.getElementText(confirmPasswordText);
+    }
+
+    public PersonalDetailsPage fillWithValuePassword() {
+        ProjectLogger.info("Fill element with password.");
+        ElementUtils.fillInWithValue(passwordElement, GlobalProperties.PASSWORD_VALUE);
+        return this;
+    }
+
+    public PersonalDetailsPage clickContinueButton() {
+        ProjectLogger.info("Click continue button.");
+        ElementUtils.clickOn(continueButton);
+        return this;
+    }
+
+    public PersonalDetailsPage fillWithValueNewEmail(String email) {
+        ProjectLogger.info("Fill element with new email.");
+        ElementUtils.fillInWithValue(emailElement, email);
+        return this;
+    }
+
+    public void clickSaveEmailButton() {
+        ProjectLogger.info("Click save email button.");
+        ElementUtils.clickOn(saveEmailChangesElement);
+    }
 }
