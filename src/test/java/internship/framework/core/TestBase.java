@@ -25,10 +25,10 @@ import java.net.URI;
 import static internship.framework.core.utility.Constants.CHROME;
 import static internship.framework.core.utility.NavigationUtils.setWindowSize;
 
-@Listeners ({TestBaseListener.class})
+@Listeners({TestBaseListener.class})
 public class TestBase {
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp(Method method) {
         ProjectLogger.set(method);
         initializeExtentTest(method);
@@ -65,8 +65,8 @@ public class TestBase {
         capabilities.setCapability("recordVideo", GlobalProperties.VIDEO_RECORDING);
         try {
             Driver.set(new RemoteWebDriver(
-                URI.create(GlobalProperties.SELENIUM_SERVER).toURL(),
-                capabilities));
+                    URI.create(GlobalProperties.SELENIUM_SERVER).toURL(),
+                    capabilities));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -74,8 +74,9 @@ public class TestBase {
         ProjectLogger.info("Setup driver finished...");
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
+        PersonalDetailsTest.softAssert.remove();
         ExtentTestManager.endTest();
         Driver.remove();
     }

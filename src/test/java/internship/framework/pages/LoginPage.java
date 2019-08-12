@@ -29,6 +29,11 @@ public class LoginPage extends PageBase {
     @FindBy(css = "a.form-container-box-content-info-text")
     private WebElement forgotPassword;
 
+    @FindBy(xpath = "//h1[@class='form-container-box-header-right-text']")
+    private WebElement loginTextElement;
+
+    @FindBy(xpath = "//p[contains(text(),\"Sorry, we can't find an account with this email ad\")]")
+    private WebElement failedLoginTextElement;
 
     public LoginPage enterEmail(String email) {
         ProjectLogger.info("Enter email address");
@@ -70,7 +75,20 @@ public class LoginPage extends PageBase {
     }
 
     public boolean isMyAccountDisplayed() {
+        ProjectLogger.info("Check if My account is displayed.");
         return doesAppear(myAccountLabel);
+    }
+
+    public String isLoginTextDisplayed()
+    {
+        ProjectLogger.info("Check if login text is displayed.");
+        return ElementUtils.getElementText(loginTextElement);
+    }
+
+    public String isFailedLoginTextDisplayed()
+    {
+        ProjectLogger.info("Check if failed login is displayed.");
+        return ElementUtils.getElementText(failedLoginTextElement);
     }
 
 }
