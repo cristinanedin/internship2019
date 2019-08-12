@@ -12,8 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsTest extends TestBase {
     public static ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
-    private final String TEST_EMAIL = "radu.telegraph+8@gmail.com";
+    private final String TEST_EMAIL = "radu.telegraph+11@gmail.com";
     private final String TEST_PASSWORD = "qwer1234";
+    private final String TEST_NEW_EMAIL = "radu.telegraph+12@gmail.com";
 
 
     @Test(testName = "Personal details test",
@@ -41,7 +42,7 @@ public class PersonalDetailsTest extends TestBase {
         softAssert.get().assertTrue(personalDetailsPage.isConfirmPasswordTextDisplayed().contains("confirm your password"), "Confirm password text is not displayed.");
         personalDetailsPage.fillWithValuePassword()
                 .clickContinueButton()
-                .fillWithValueNewEmail("radu.telegraph+9@gmail.com")
+                .fillWithValueNewEmail(TEST_NEW_EMAIL)
                 .clickSaveEmailButton();
         LoginPage loginPage = new LoginPage();
         softAssert.get().assertTrue(loginPage.isLoginTextDisplayed().contains("Log in"));
