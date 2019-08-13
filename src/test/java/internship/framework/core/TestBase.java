@@ -11,10 +11,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.lang.reflect.Method;
@@ -26,7 +23,12 @@ import static internship.framework.core.utility.NavigationUtils.setWindowSize;
 
 @Listeners({TestBaseListener.class})
 public class TestBase {
-    protected ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
+    protected ThreadLocal<SoftAssert> softAssert;
+
+    public TestBase()
+    {
+        softAssert = new ThreadLocal<>();
+    }
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method) {

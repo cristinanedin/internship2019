@@ -6,13 +6,11 @@ import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static internship.framework.core.utility.ElementUtils.*;
 import static internship.framework.core.utility.ElementUtils.clickOn;
 import static internship.framework.core.utility.ElementUtils.fillInWithValue;
 
 public class RegisterPage extends PageBase {
-    public RegisterPage() {
-        super();
-    }
 
     @FindBy(xpath = "//input[@type='email']")
     private WebElement emailRegisterInputField;
@@ -31,6 +29,10 @@ public class RegisterPage extends PageBase {
 
     @FindBy(xpath = "//button[@class='evidon-banner-acceptbutton']")
     private WebElement acceptCookiesElement;
+
+    public RegisterPage() {
+        super();
+    }
 
     public RegisterPage enterEmailRegister(String emailValue) {
         ProjectLogger.info("Enter email for register");
@@ -52,18 +54,18 @@ public class RegisterPage extends PageBase {
     public String isConfirmRegisterTextDisplayed()
     {
         ProjectLogger.info("Confirm register text is displayed.");
-        return ElementUtils.getElementText(confirmRegisterText);
+        return getElementText(confirmRegisterText);
     }
 
     public String isFailRegisterTextDisplayed()
     {
         ProjectLogger.info("Fail register text is displayed.");
-        return ElementUtils.getElementText(failRegisterText);
+        return getElementText(failRegisterText);
     }
 
     public void clickAcceptCookies()
     {
         ProjectLogger.info("Click Accept cookies button.");
-        ElementUtils.clickOn(acceptCookiesElement);
+        clickOn(acceptCookiesElement);
     }
 }

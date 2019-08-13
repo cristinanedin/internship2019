@@ -10,7 +10,6 @@ import org.testng.asserts.SoftAssert;
 import static internship.framework.core.runner.GlobalProperties.*;
 
 public class RegisterTest extends TestBase {
-    private ThreadLocal<SoftAssert> softAssert = super.softAssert;
     private final String DUPLICATE_USERNAME = "stroeradu03@gmail.com";
     private final String DUPLICATE_PASSWORD = "qwer1234";
 
