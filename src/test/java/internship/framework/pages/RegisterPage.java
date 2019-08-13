@@ -1,7 +1,7 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.NavigationUtils;
+import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +23,15 @@ public class RegisterPage extends PageBase {
     @FindBy(xpath = "//button[@class='button primary']")
     private WebElement accessRegisterButton;
 
+    @FindBy(xpath = "//h1[@class='form-container-box-header-right-text']")
+    private WebElement confirmRegisterText;
+
+    @FindBy(xpath = "//p[contains(text(),'A Telegraph account associated with this email add')]")
+    private WebElement failRegisterText;
+
+    @FindBy(xpath = "//button[@class='evidon-banner-acceptbutton']")
+    private WebElement acceptCookiesElement;
+
     public RegisterPage enterEmailRegister(String emailValue) {
         ProjectLogger.info("Enter email for register");
         fillInWithValue(emailRegisterInputField, emailValue);
@@ -35,9 +44,26 @@ public class RegisterPage extends PageBase {
         return this;
     }
 
-    public RegisterCompletePage clickRegisterButtonOnForm() {
+    public void clickRegisterButtonOnForm() {
         ProjectLogger.info("Click Register button");
         clickOn(accessRegisterButton);
-        return new RegisterCompletePage();
+    }
+
+    public String isConfirmRegisterTextDisplayed()
+    {
+        ProjectLogger.info("Confirm register text is displayed.");
+        return ElementUtils.getElementText(confirmRegisterText);
+    }
+
+    public String isFailRegisterTextDisplayed()
+    {
+        ProjectLogger.info("Fail register text is displayed.");
+        return ElementUtils.getElementText(failRegisterText);
+    }
+
+    public void clickAcceptCookies()
+    {
+        ProjectLogger.info("Click Accept cookies button.");
+        ElementUtils.clickOn(acceptCookiesElement);
     }
 }

@@ -5,7 +5,6 @@ import internship.framework.core.runner.GlobalProperties;
 import internship.framework.core.runner.TestBaseListener;
 import internship.framework.core.utility.Driver;
 import internship.framework.core.utility.ProjectLogger;
-import internship.tests.PersonalDetailsTest;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.BrowserType;
@@ -27,13 +26,14 @@ import static internship.framework.core.utility.NavigationUtils.setWindowSize;
 
 @Listeners({TestBaseListener.class})
 public class TestBase {
+    protected ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method) {
         ProjectLogger.set(method);
         initializeExtentTest(method);
         rootInit(method);
-        PersonalDetailsTest.softAssert.set(new SoftAssert());
+        softAssert.set(new SoftAssert());
     }
 
     private void initializeExtentTest(Method method) {
@@ -76,7 +76,7 @@ public class TestBase {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        PersonalDetailsTest.softAssert.remove();
+        softAssert.remove();
         ExtentTestManager.endTest();
         Driver.remove();
     }
