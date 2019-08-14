@@ -5,7 +5,6 @@ import internship.framework.pages.Homepage;
 import internship.framework.pages.RegisterCompletePage;
 import internship.framework.pages.RegisterPage;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import static internship.framework.core.runner.GlobalProperties.*;
 
