@@ -15,22 +15,22 @@ import static internship.framework.core.utility.ElementUtils.getElementText;
 public class InternationalSubscribePage extends PageBase {
 
     @FindBy(xpath = "//body/div[@id='___gatsby']/div/div/div/div/div[@class='sc-cvbbAY abKmD']/div[@class='sc-bdVaJa jPQSoW']/div[@class='sc-eHgmQL hxYKLw']/div[@class='sc-jWBwVP dLxNyV']/div[@class='sc-brqgnP bQuYpU']/div[@class='sc-iwsKbI fRSnXO']/div[@class='sc-kGXeez gsQlBk']/div[2]")
-    WebElement payMonthlyStandardAccessPrice;
+    private WebElement payMonthlyStandardAccessPrice;
 
     @FindBy(xpath = "//body/div[@id='___gatsby']/div/div/div/div/div[@class='sc-cvbbAY abKmD']/div[@class='sc-bdVaJa jPQSoW']/div[@class='sc-eHgmQL hxYKLw']/div[@class='sc-jWBwVP dLxNyV']/div[@class='sc-brqgnP bQuYpU']/div[@class='sc-iwsKbI jLcisc']/div[@class='sc-kGXeez gsQlBk']/div[2]")
-    WebElement payMonthlyAllDigitalAccessPrice;
+    private WebElement payMonthlyAllDigitalAccessPrice;
 
     @FindBy(xpath = "//div[@class='sc-kkGfuU HOhSJ']")
-    WebElement payAnnuallyElement;
+    private WebElement payAnnuallyElement;
 
     @FindBy(xpath = "//body/div[@id='___gatsby']/div/div/div/div/div[@class='sc-cvbbAY abKmD']/div[@class='sc-bdVaJa jPQSoW']/div[@class='sc-eHgmQL hxYKLw']/div[@class='sc-jWBwVP dLxNyV']/div[@class='sc-brqgnP bQuYpU']/div[@class='sc-iwsKbI fRSnXO']/div[@class='sc-kGXeez gsQlBk']/div[2]")
-    WebElement payAnnuallyStandardAccessPrice;
+    private WebElement payAnnuallyStandardAccessPrice;
 
     @FindBy(xpath = "//body/div[@id='___gatsby']/div/div/div/div/div[@class='sc-cvbbAY abKmD']/div[@class='sc-bdVaJa jPQSoW']/div[@class='sc-eHgmQL hxYKLw']/div[@class='sc-jWBwVP dLxNyV']/div[@class='sc-brqgnP bQuYpU']/div[@class='sc-iwsKbI jLcisc']/div[@class='sc-kGXeez gsQlBk']/div[2]")
-    WebElement payAnnuallyAllDigitalAccessPrice;
+    private WebElement payAnnuallyAllDigitalAccessPrice;
 
     @FindBy(xpath = "//div[@class='sc-Rmtcm EeDiq']")
-    WebElement unlimitedAccess24HoursPrice;
+    private WebElement unlimitedAccess24HoursPrice;
 
     public InternationalSubscribePage open() {
         Driver.get().get(INTERNATIONAL_SUBSCRIPTION_URL);
