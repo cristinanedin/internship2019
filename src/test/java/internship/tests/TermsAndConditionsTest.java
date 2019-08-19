@@ -13,10 +13,10 @@ public class TermsAndConditionsTest extends TestBase {
         CustomerSubscribePage customerSubscribePage = new CustomerSubscribePage().openPage();
         customerSubscribePage.clickTermsAndConditionsButton();
         TermsAndConditionsPage termsAndConditionsPage = new TermsAndConditionsPage();
-        softAssert.get().assertTrue(termsAndConditionsPage.isTermsAndConditionsDisplayed().contains("Terms and Conditions"),
+        softAssert.get().assertEquals(termsAndConditionsPage.getTermsAndConditionsTitleText(),"Terms and Conditions",
                 "Terms and Conditions element is not displayed.");
-        softAssert.get().assertTrue(termsAndConditionsPage.isPoliciesAndProcessesDisplayed().contains("Policies and Processes"),
-                "Policies and Processes element is not displayed.");
+        softAssert.get().assertEquals(termsAndConditionsPage.getPoliciesAndProcessesChapterText(), "Policies and Processes",
+                "Policies and Processes element is not displayed");
         softAssert.get().assertAll();
     }
 }
