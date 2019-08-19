@@ -21,5 +21,6 @@ public class InternationalSubscribeTest extends TestBase {
                 "Pay annually all digital access price is not displayed in dollars.");
         softAssert.get().assertTrue(internationalSubscribePage.unlimitedAccess24HoursPriceText().contains("$1"),
                 "Unlimited access 24 hours price is not displayed in dollars.");
+        softAssert.get().assertAll();
     }
 }
