@@ -3,6 +3,7 @@ package internship.framework.pages;
 import internship.framework.core.PageBase;
 import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.PageUrl;
+import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -30,7 +31,8 @@ public class CustomerSubscribePage extends PageBase {
     private WebElement perYearLocator2;
     @FindBy(xpath = "//span[@class='card-heading-sub-heading'][text()='From £104 per year']")
     private WebElement perYearLocator3;
-
+    @FindBy(xpath = "//a[@href='https://www.telegraph.co.uk/about-us/terms-and-conditions/']")
+    private WebElement termsAndConditions;
 
     public String getDisplayedPayMonthlyText() {
         return ElementUtils.getElementText(payMonthlyLocator);
@@ -78,5 +80,8 @@ public class CustomerSubscribePage extends PageBase {
         return ElementUtils.getElementText(perYearLocator3);
     }
 
-
+    public void clickTermsAndConditionsButton() {
+        ProjectLogger.info("Navigate to Terms and Conditions page.");
+        ElementUtils.clickOnWithJs(termsAndConditions);
+    }
 }
