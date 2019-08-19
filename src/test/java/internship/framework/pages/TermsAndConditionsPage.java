@@ -17,13 +17,13 @@ public class TermsAndConditionsPage extends PageBase {
 
     public String getTermsAndConditionsTitleText()
     {
-        ProjectLogger.info("Check if Terms and Conditions element is displayed.");
+        ProjectLogger.info("Get Terms and Conditions element's text.");
         return  getElementText(termsAndConditionsTitleText);
     }
 
     public String getPoliciesAndProcessesChapterText()
     {
-        ProjectLogger.info("Check if Policies and Processes element is displayed.");
+        ProjectLogger.info("Get Policies and Processes element's text.");
         return  getElementText(policiesAndProcessesChapterTitleText);
     }
 }
