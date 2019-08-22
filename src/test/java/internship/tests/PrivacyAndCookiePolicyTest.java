@@ -10,7 +10,8 @@ public class PrivacyAndCookiePolicyTest extends TestBase {
     private final String PRIVACY_AND_COOKIE_POLICY_URL = "https://www.telegraph.co.uk/about-us/privacy-and-cookie-policy/";
 
     @Test(testName = "Privacy and Cookie Policy Test",
-    description = "Testing Privacy and Cookie Policy functionality")
+    description = "Testing Privacy and Cookie Policy functionality",
+            priority = 1)
     public void checkPrivacyAndCookiePolicyFunctionality()
     {
         Homepage homepage = new Homepage().openPage();

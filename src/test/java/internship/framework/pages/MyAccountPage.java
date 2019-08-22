@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends PageBase {
 
-    @FindBy(css = "a[title='My newsletters']")
+    @FindBy(xpath = "//a[contains(text(),'My Newsletters')]")
     private WebElement myNewslettersButton;
 
     @FindBy(xpath = "//div[@class='newsletters-home-cards-content']//div[1]//div[1]//button[1]")

@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 public class InternationalSubscribeTest extends TestBase {
 
     @Test(testName = "International subscribe test",
-            description = "Testing International Subscribe page offers.")
+            description = "Testing International Subscribe page offers.",
+            priority = 1)
     public void checkPriceOffersDisplayedInDollars() {
         InternationalSubscribePage internationalSubscribePage = new InternationalSubscribePage().open();
         softAssert.get().assertTrue(internationalSubscribePage.payMonthlyStandardAccessPriceText().contains("$2"),

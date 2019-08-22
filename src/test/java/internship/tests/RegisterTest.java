@@ -13,7 +13,8 @@ public class RegisterTest extends TestBase {
     private final String DUPLICATE_PASSWORD = "qwer1234";
 
     @Test(testName = "Verify successful registration",
-            description = "Testing successful registration")
+            description = "Testing successful registration",
+            priority = 1)
     public void checkSuccessfulRegistration() {
         RegisterCompletePage registerCompletePage = new RegisterCompletePage().openPage();
         register(USERNAME_REGISTER_VALUE, PASSWORD_VALUE);
@@ -27,7 +28,8 @@ public class RegisterTest extends TestBase {
 
     @Test(testName = "Verify failed registration",
             description = "Testing failed registration",
-            dependsOnMethods = "checkSuccessfulRegistration")
+            dependsOnMethods = "checkSuccessfulRegistration",
+            priority = 1)
     public void checkFailRegistration() {
         RegisterPage registerPage = new RegisterPage().openPage();
         registerPage.clickAcceptCookies();

@@ -10,35 +10,35 @@ import static internship.framework.core.utility.ElementUtils.clickOn;
 
 public class NavigationPage extends PageBase {
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'News')]")
+    @FindBy(xpath = "//span[contains(text(),'News')]")
     private WebElement buttonNews;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Politics')]")
+    @FindBy(xpath = "//span[contains(text(),'Politics')]")
     private WebElement buttonPolitics;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Sport')]")
+    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'Sport')]")
     private WebElement buttonSport;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Technology')]")
-    private WebElement buttonTechnology;
-
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Business')]")
+    @FindBy(xpath = "//span[contains(text(),'Business')]")
     private WebElement buttonBusiness;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Money')]")
+    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'Money')]")
     private WebElement buttonMoney;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Opinion')]")
+    @FindBy(xpath = "//span[contains(text(),'Opinion')]")
     private WebElement buttonOpinion;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Lifestyle')]")
+    @FindBy(xpath = "//span[contains(text(),'Tech')]")
+    private WebElement buttonTechnology;
+
+    @FindBy(xpath = "//span[contains(text(),'Life & Style')]")
     private WebElement buttonLifestyle;
 
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Culture')]")
-    private WebElement buttonCulture;
-
-    @FindBy(xpath = "//a[contains(@class,'header-nav-primary__link')][contains(text(),'Travel')]")
+    @FindBy(xpath = "//span[contains(text(),'Travel')]")
     private WebElement buttonTravel;
+
+    @FindBy(xpath = "//span[contains(text(),'Culture')]")
+    private WebElement buttonCulture;
 
     public String getSectionUrl() {
         return Driver.get().getCurrentUrl();
@@ -48,13 +48,13 @@ public class NavigationPage extends PageBase {
         NEWS("https://www.telegraph.co.uk/news/"),
         POLITICS("https://www.telegraph.co.uk/politics/"),
         SPORT("https://www.telegraph.co.uk/sport/"),
-        TECHNOLOGY("https://www.telegraph.co.uk/technology/"),
         BUSINESS("https://www.telegraph.co.uk/business/"),
         MONEY("https://www.telegraph.co.uk/money/"),
         OPINION("https://www.telegraph.co.uk/opinion/"),
+        TECHNOLOGY("https://www.telegraph.co.uk/technology/"),
         LIFESTYLE("https://www.telegraph.co.uk/lifestyle/"),
-        CULTURE("https://www.telegraph.co.uk/culture/"),
-        TRAVEL("https://www.telegraph.co.uk/travel/");
+        TRAVEL("https://www.telegraph.co.uk/travel/"),
+        CULTURE("https://www.telegraph.co.uk/culture/");
         private final String url;
 
 
@@ -78,9 +78,6 @@ public class NavigationPage extends PageBase {
             case SPORT:
                 clickOn(buttonSport);
                 break;
-            case TECHNOLOGY:
-                clickOn(buttonTechnology);
-                break;
             case BUSINESS:
                 clickOn(buttonBusiness);
                 break;
@@ -90,14 +87,17 @@ public class NavigationPage extends PageBase {
             case OPINION:
                 clickOn(buttonOpinion);
                 break;
+            case TECHNOLOGY:
+                clickOn(buttonTechnology);
+                break;
             case LIFESTYLE:
                 clickOn(buttonLifestyle);
                 break;
-            case CULTURE:
-                clickOn(buttonCulture);
-                break;
             case TRAVEL:
                 clickOn(buttonTravel);
+                break;
+            case CULTURE:
+                clickOn(buttonCulture);
                 break;
             default:
                 throw new NoSuchElementException("Invalid option");

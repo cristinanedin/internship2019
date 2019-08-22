@@ -9,13 +9,13 @@ import static internship.framework.core.utility.ElementUtils.*;
 
 public class Homepage extends PageBase {
 
-    @FindBy(xpath = "//a[@class = 'header-logobar__link']")
+    @FindBy(xpath = "//*[@id='site-logo']")
     private WebElement telegraphLink;
 
-    @FindBy(xpath = "//div[text()='Login']")
+    @FindBy(xpath = "//a[@class='e-site-header-button__link e-site-header-button__link--no-border']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//ul[contains(@class,'header-nav-global__list header-nav-global__engagement')]//li[3]//a[1]")
+    @FindBy(xpath = "//a[contains(text(),'Create an account')]")
     private WebElement registerButton;
 
     @FindBy(xpath = "//a[contains(text(),'Privacy')]")
@@ -33,6 +33,7 @@ public class Homepage extends PageBase {
 
     public RegisterPage clickRegisterButton() {
         ProjectLogger.info("Navigate to Register page");
+        clickOn(loginButton);
         clickOn(registerButton);
         return new RegisterPage();
     }

@@ -18,7 +18,9 @@ public class CustomerSubscribePageTest extends TestBase {
     public final static String EXPECTED_PER_YEAR2_TEXT = "£200 per year";
     public final static String EXPECTED_PER_YEAR3_TEXT = "From £104 per year";
 
-    @Test(testName = "Subscribe test", description = "open subscribe page")
+    @Test(testName = "Subscribe test",
+            description = "open subscribe page",
+            priority = 1)
     public void subscribeTest() {
         SoftAssert softAssert = new SoftAssert();
         CustomerSubscribePage customerSubscribePage = new CustomerSubscribePage().openPage();
@@ -36,7 +38,6 @@ public class CustomerSubscribePageTest extends TestBase {
         softAssert.assertEquals(customerSubscribePage.getDisplayedDigitalAcces(), EXPECTED_DIGITAL_ACCESS_TEXT, "Data doesn't match");
         softAssert.assertEquals(customerSubscribePage.getDisplayedPerYear2(), EXPECTED_PER_YEAR2_TEXT, "Data doesn't match");
         softAssert.assertEquals(customerSubscribePage.getDisplayedPerYear3(), EXPECTED_PER_YEAR3_TEXT, "Data doesn't match");
-
         ProjectLogger.info("check testing part 2");
         softAssert.assertAll();
 

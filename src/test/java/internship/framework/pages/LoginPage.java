@@ -11,6 +11,9 @@ import static internship.framework.core.utility.ElementUtils.doesAppear;
 
 public class LoginPage extends PageBase {
 
+    @FindBy(xpath = "//div[@class='e-site-header-button e-site-header-button--menu']//a[@class='e-site-header-button__link']")
+    private WebElement loginMenu;
+
     @FindBy(id = "email")
     private WebElement emailInputField;
 
@@ -20,11 +23,11 @@ public class LoginPage extends PageBase {
     @FindBy(xpath = "//button[@class='button primary']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//a[@title='My Account']")
+    @FindBy(xpath = "//a[contains(text(),'My Account')]")
     private WebElement myAccountLabel;
 
-    @FindBy(xpath = "//div[text()='Login']")
-    private WebElement loginButton2;
+    @FindBy(xpath = "//a[@class='e-site-header-button__link e-site-header-button__link--no-border']")
+    private WebElement loginButtonHome;
 
     @FindBy(css = "a.form-container-box-content-info-text")
     private WebElement forgotPassword;
@@ -56,7 +59,7 @@ public class LoginPage extends PageBase {
 
     public LoginPage clickLogInButtonHome() {
         ProjectLogger.info("Login site");
-        ElementUtils.clickOn(loginButton2);
+        ElementUtils.clickOn(loginButtonHome);
         return this;
 
     }
@@ -70,12 +73,14 @@ public class LoginPage extends PageBase {
     public LoginPage clickMyAccountButton()
     {
         ProjectLogger.info("Click My Account button.");
+        ElementUtils.clickOn(loginMenu);
         ElementUtils.clickOn(myAccountLabel);
         return this;
     }
 
     public boolean isMyAccountDisplayed() {
         ProjectLogger.info("Check if My account is displayed.");
+        ElementUtils.clickOn(loginMenu);
         return doesAppear(myAccountLabel);
     }
 

@@ -10,7 +10,8 @@ public class TermsAndConditionsTest extends TestBase {
     private final String POLICIES_AND_PROCESSES = "Policies and Processes";
 
     @Test(testName = "Terms and Conditions Test",
-    description = "Testing Terms and Conditions")
+    description = "Testing Terms and Conditions",
+    priority = 0)
     public void checkTermsAndConditions() {
         CustomerSubscribePage customerSubscribePage = new CustomerSubscribePage().openPage();
         customerSubscribePage.clickTermsAndConditionsButton();

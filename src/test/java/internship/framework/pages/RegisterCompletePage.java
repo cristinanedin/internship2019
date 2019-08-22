@@ -1,7 +1,6 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.NavigationUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,6 +11,9 @@ public class RegisterCompletePage extends PageBase {
         super();
     }
 
+    @FindBy(xpath = "//div[@class='e-site-header-button e-site-header-button--menu']//a[@class='e-site-header-button__link']")
+    private WebElement loginMenu;
+
     @FindBy(xpath = "//input[@name='firstName']")
     private WebElement firstNameInputField;
 
@@ -21,10 +23,10 @@ public class RegisterCompletePage extends PageBase {
     @FindBy(xpath = "//button[@class='button primary']")
     private WebElement buttonCompleteRegister;
 
-    @FindBy(xpath = "//div[@class='register-complete-content-form-button']")
+    @FindBy(xpath = "//button[@class='button primary']")
     private WebElement buttonCompleteRegisterCheck;
 
-    @FindBy(xpath = "//a[@title='My Account']")
+    @FindBy(xpath = "//a[contains(text(),'My Account')]")
     private WebElement myAccountLabel;
 
 
@@ -48,6 +50,7 @@ public class RegisterCompletePage extends PageBase {
     }
 
     public boolean isMyAccountDisplayed() {
+        clickOn(loginMenu);
         return doesAppear(myAccountLabel);
     }
 }

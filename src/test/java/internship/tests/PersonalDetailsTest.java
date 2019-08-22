@@ -6,19 +6,18 @@ import internship.framework.core.utility.TestUtils;
 import internship.framework.pages.LoginPage;
 import internship.framework.pages.PersonalDetailsPage;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsTest extends TestBase {
-    public static ThreadLocal<SoftAssert> softAssert = new ThreadLocal<>();
-    private final String TEST_EMAIL = "radu.telegraph+11@gmail.com";
+    private final String TEST_EMAIL = "radu.telegraph+10@gmail.com";
     private final String TEST_PASSWORD = "qwer1234";
-    private final String TEST_NEW_EMAIL = "radu.telegraph+12@gmail.com";
+    private final String TEST_NEW_EMAIL = "radu.telegraph+11@gmail.com";
 
 
     @Test(testName = "Personal details test",
-            description = "Testing personal details.")
+            description = "Testing personal details.",
+            priority = 1)
     public void checkPersonalDetailsFunctionality() {
         TestUtils.login(TEST_EMAIL, TEST_PASSWORD);
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails();
@@ -34,7 +33,8 @@ public class PersonalDetailsTest extends TestBase {
     }
 
     @Test(dependsOnMethods = "checkPersonalDetailsFunctionality", testName = "Change email address test",
-            description = "Testing change email address functionality")
+            description = "Testing change email address functionality",
+            priority = 1)
     public void checkChangeEmailFunctionality() {
         TestUtils.login(TEST_EMAIL, TEST_PASSWORD);
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails()
