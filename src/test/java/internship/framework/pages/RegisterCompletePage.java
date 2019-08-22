@@ -7,9 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import static internship.framework.core.utility.ElementUtils.*;
 
 public class RegisterCompletePage extends PageBase {
-    public RegisterCompletePage() {
-        super();
-    }
 
     @FindBy(xpath = "//div[@class='e-site-header-button e-site-header-button--menu']//a[@class='e-site-header-button__link']")
     private WebElement loginMenu;
@@ -29,6 +26,9 @@ public class RegisterCompletePage extends PageBase {
     @FindBy(xpath = "//a[contains(text(),'My Account')]")
     private WebElement myAccountLabel;
 
+    public RegisterCompletePage() {
+        super();
+    }
 
     public RegisterCompletePage enterFirstName(String firstName) {
         fillInWithValue(firstNameInputField, firstName);

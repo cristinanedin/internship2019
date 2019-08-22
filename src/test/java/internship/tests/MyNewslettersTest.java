@@ -13,7 +13,7 @@ public class MyNewslettersTest extends TestBase {
     @Test(testName = "My Newsletters Test",
             description = "Testing My Newsletters functionality",
             priority = 1)
-    public void TestingMyNewslettersFunctionality() {
+    public void testingMyNewslettersFunctionality() {
         login();
         new MyAccountPage().clickMyNewslettersButton();
         MynewslettersPage mynewslettersPage = new MynewslettersPage().addNewsletters();
@@ -26,7 +26,7 @@ public class MyNewslettersTest extends TestBase {
     @Test(dependsOnMethods = {"TestingMyNewslettersFunctionality"}, testName = "My Account Test",
             description = "Testing My Account functionality",
             priority = 1)
-    public void TestingMyAccountFunctionality() {
+    public void testingMyAccountFunctionality() {
         login();
         MyAccountPage myAccountPage = new MyAccountPage().clickMyNewslettersButton()
                 .navigateMyAccount()
