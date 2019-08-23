@@ -31,35 +31,30 @@ public class ResetPasswordPage extends PageBase {
         return doesAppear(resetPasswordText);
     }
 
-    public ResetPasswordPage enterValidPassword()
-    {
+    public ResetPasswordPage enterValidPassword() {
         ElementUtils.fillInWithValue(emailAddress, GlobalProperties.USERNAME_VALUE);
         ProjectLogger.info("Enter valid email address.");
         return this;
     }
 
-    public ResetPasswordPage enterInvalidPassword()
-    {
+    public ResetPasswordPage enterInvalidPassword() {
         ElementUtils.fillInWithValue(emailAddress, GlobalProperties.INVALID_EMAIL_ADDRESS);
         ProjectLogger.info("Enter invalid email address.");
         return this;
     }
 
-    public ResetPasswordPage clickResetPasswordButton()
-    {
+    public ResetPasswordPage clickResetPasswordButton() {
         ElementUtils.clickOn(resetPasswordButton);
         ProjectLogger.info("Click reset password button.");
         return this;
     }
 
-    public boolean isResetConfirmationDisplayed()
-    {
+    public boolean isResetConfirmationDisplayed() {
         ProjectLogger.info("Check reset confirmation page.");
         return ElementUtils.doesAppear(resetConfirmationText);
     }
 
-    public boolean isIncorrectEmailFormatDisplayed()
-    {
+    public boolean isIncorrectEmailFormatDisplayed() {
         ProjectLogger.info("Check if incorrect email format is displayed.");
         return ElementUtils.doesAppear(incorrectEmailFormatText);
     }

@@ -15,13 +15,13 @@ public class DataProviders {
                 {NEWS},
                 {POLITICS},
                 {SPORT},
-                {TECHNOLOGY},
                 {BUSINESS},
                 {MONEY},
                 {OPINION},
+                {TECHNOLOGY},
                 {LIFESTYLE},
-                {CULTURE},
-                {TRAVEL}
+                {TRAVEL},
+                {CULTURE}
         };
     }
 }

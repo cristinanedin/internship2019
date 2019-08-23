@@ -13,9 +13,7 @@ public class NavigationPageTest extends TestBase {
             description = "Open Navigation page and verify sections",
             dataProvider = "sectionNavigation", dataProviderClass = DataProviders.class)
     public void checkNavigationPage(Sections sectionName) {
-
         NavigationPage navigationPage = new NavigationPage().openPage();
-
         navigationPage.goToPage(sectionName);
         Assert.assertEquals(navigationPage.getSectionUrl(),
                 sectionName.getUrl(),

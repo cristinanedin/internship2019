@@ -3,7 +3,7 @@
 <suite name="Internship UI Automation Tests" parallel="methods" verbose="10" configfailurepolicy="continue">
     <test name="Internship_UI_automation_tests">
         <packages>
-        <package name="Internship.tests.*"/>
+            <package name="internship.tests.*"/>
         </packages>
     </test>
 </suite>

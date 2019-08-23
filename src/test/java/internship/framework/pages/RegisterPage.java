@@ -1,14 +1,11 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static internship.framework.core.utility.ElementUtils.*;
-import static internship.framework.core.utility.ElementUtils.clickOn;
-import static internship.framework.core.utility.ElementUtils.fillInWithValue;
 
 public class RegisterPage extends PageBase {
 
@@ -51,20 +48,17 @@ public class RegisterPage extends PageBase {
         clickOn(accessRegisterButton);
     }
 
-    public String isConfirmRegisterTextDisplayed()
-    {
+    public String isConfirmRegisterTextDisplayed() {
         ProjectLogger.info("Confirm register text is displayed.");
         return getElementText(confirmRegisterText);
     }
 
-    public String isFailRegisterTextDisplayed()
-    {
+    public String isFailRegisterTextDisplayed() {
         ProjectLogger.info("Fail register text is displayed.");
         return getElementText(failRegisterText);
     }
 
-    public void clickAcceptCookies()
-    {
+    public void clickAcceptCookies() {
         ProjectLogger.info("Click Accept cookies button.");
         clickOn(acceptCookiesElement);
     }

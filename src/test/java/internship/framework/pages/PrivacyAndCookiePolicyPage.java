@@ -12,14 +12,12 @@ public class PrivacyAndCookiePolicyPage extends PageBase {
     @FindBy(xpath = "//h1[contains(@class,'headline__heading')]")
     private WebElement privacyAndCookiePolicyTitleText;
 
-    public String getPrivacyAndCookiePolicyTitleText()
-    {
+    public String getPrivacyAndCookiePolicyTitleText() {
         ProjectLogger.info("Get Privacy and Cookie Policy element's text.");
         return ElementUtils.getElementText(privacyAndCookiePolicyTitleText);
     }
 
-    public String getPrivacyAndCookiePolicyUrl()
-    {
+    public String getPrivacyAndCookiePolicyUrl() {
         ProjectLogger.info("Get Privacy and Cookie Policy Url.");
         return Driver.get().getCurrentUrl();
     }

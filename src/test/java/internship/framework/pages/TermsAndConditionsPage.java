@@ -15,15 +15,13 @@ public class TermsAndConditionsPage extends PageBase {
     @FindBy(xpath = "//b[contains(text(),'Policies and Processes')]")
     private WebElement policiesAndProcessesChapterTitleText;
 
-    public String getTermsAndConditionsTitleText()
-    {
+    public String getTermsAndConditionsTitleText() {
         ProjectLogger.info("Get Terms and Conditions element's text.");
-        return  getElementText(termsAndConditionsTitleText);
+        return getElementText(termsAndConditionsTitleText);
     }
 
-    public String getPoliciesAndProcessesChapterText()
-    {
+    public String getPoliciesAndProcessesChapterText() {
         ProjectLogger.info("Get Policies and Processes element's text.");
-        return  getElementText(policiesAndProcessesChapterTitleText);
+        return getElementText(policiesAndProcessesChapterTitleText);
     }
 }
