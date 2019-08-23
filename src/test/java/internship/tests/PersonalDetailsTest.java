@@ -10,14 +10,13 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class PersonalDetailsTest extends TestBase {
-    private final String TEST_EMAIL = "radu.telegraph+10@gmail.com";
+    private final String TEST_EMAIL = "radu.telegraph+1@gmail.com";
     private final String TEST_PASSWORD = "qwer1234";
-    private final String TEST_NEW_EMAIL = "radu.telegraph+11@gmail.com";
+    private final String TEST_NEW_EMAIL = "radu.telegraph+2@gmail.com";
 
 
     @Test(testName = "Personal details test",
-            description = "Testing personal details.",
-            priority = 1)
+            description = "Testing personal details.")
     public void checkPersonalDetailsFunctionality() {
         TestUtils.login(TEST_EMAIL, TEST_PASSWORD);
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails();
@@ -29,28 +28,39 @@ public class PersonalDetailsTest extends TestBase {
                 .navigatePersonalDetailsTab();
         Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         softAssert.get().assertTrue(personalDetailsPage.areALLCheckboxesSelected(), "Not every checkbox is selected.");
+        personalDetailsPage.selectAllContactPreferences();
         softAssert.get().assertAll();
     }
 
     @Test(dependsOnMethods = "checkPersonalDetailsFunctionality", testName = "Change email address test",
-            description = "Testing change email address functionality",
-            priority = 1)
+            description = "Testing change email address functionality")
     public void checkChangeEmailFunctionality() {
         TestUtils.login(TEST_EMAIL, TEST_PASSWORD);
+        changeEmailAddress(TEST_NEW_EMAIL);
+        LoginPage loginPage = new LoginPage();
+        softAssert.get().assertTrue(loginPage.isLoginTextDisplayed().contains("Log in"));
+        loginPage(TEST_EMAIL);
+        softAssert.get().assertTrue(loginPage.isFailedLoginTextDisplayed().contains("Sorry"));
+        loginPage(TEST_NEW_EMAIL);
+        changeEmailAddress(TEST_EMAIL);
+        softAssert.get().assertAll();
+    }
+
+    private void changeEmailAddress(String newEmail) {
         PersonalDetailsPage personalDetailsPage = new PersonalDetailsPage().navigatePersonalDetails()
                 .clickChangeEmailLink();
         softAssert.get().assertTrue(personalDetailsPage.isConfirmPasswordTextDisplayed().contains("confirm your password"), "Confirm password text is not displayed.");
         personalDetailsPage.fillWithValuePassword()
                 .clickContinueButton()
-                .fillWithValueNewEmail(TEST_NEW_EMAIL)
+                .fillWithValueNewEmail(newEmail)
                 .clickSaveEmailButton();
+    }
+
+    private void loginPage(String newEmail) {
         LoginPage loginPage = new LoginPage();
-        softAssert.get().assertTrue(loginPage.isLoginTextDisplayed().contains("Log in"));
-        loginPage.enterEmail(TEST_EMAIL)
+        loginPage.enterEmail(newEmail)
                 .enterPassword(TEST_PASSWORD)
                 .clickLogInButton();
-        softAssert.get().assertTrue(loginPage.isFailedLoginTextDisplayed().contains("Sorry"));
-        softAssert.get().assertAll();
     }
 
     private void editPersonalDetails() {

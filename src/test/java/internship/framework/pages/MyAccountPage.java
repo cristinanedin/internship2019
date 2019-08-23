@@ -26,28 +26,24 @@ public class MyAccountPage extends PageBase {
         return this;
     }
 
-    public MyAccountPage addNewsletter()
-    {
+    public MyAccountPage addNewsletter() {
         ProjectLogger.info("Add newsletter.");
         ElementUtils.clickOn(firstNewsletterButton);
         return this;
     }
 
-    public boolean isValidateNewsletterDisplayed()
-    {
+    public boolean isValidateNewsletterDisplayed() {
         ProjectLogger.info("Check if validate newsletter element is displayed.");
         return ElementUtils.doesAppear(validateNewsletter);
 
     }
 
-    public String getValidateNewsletterText()
-    {
+    public String getValidateNewsletterText() {
         ProjectLogger.info("Check if validate newsletter text matches.");
         return ElementUtils.getElementText(validateNewsletter);
     }
 
-    public MyAccountPage navigateMyAccount()
-    {
+    public MyAccountPage navigateMyAccount() {
         ProjectLogger.info("Navigate to My Account tab.");
         ElementUtils.clickOn(MyAccountElement);
         return this;

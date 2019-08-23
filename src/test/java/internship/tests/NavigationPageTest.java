@@ -11,8 +11,7 @@ public class NavigationPageTest extends TestBase {
 
     @Test(testName = "Open Navigation page",
             description = "Open Navigation page and verify sections",
-            dataProvider = "sectionNavigation", dataProviderClass = DataProviders.class,
-            priority = 2)
+            dataProvider = "sectionNavigation", dataProviderClass = DataProviders.class)
     public void checkNavigationPage(Sections sectionName) {
         NavigationPage navigationPage = new NavigationPage().openPage();
         navigationPage.goToPage(sectionName);

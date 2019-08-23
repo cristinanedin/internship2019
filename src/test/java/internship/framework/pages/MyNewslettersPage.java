@@ -1,12 +1,13 @@
 package internship.framework.pages;
 
 import internship.framework.core.PageBase;
-import internship.framework.core.utility.ElementUtils;
 import internship.framework.core.utility.ProjectLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MynewslettersPage extends PageBase {
+import static internship.framework.core.utility.ElementUtils.*;
+
+public class MyNewslettersPage extends PageBase {
 
     @FindBy(xpath = "//div[@class='account-newsletters-list']//div[1]//div[1]//button[1]")
     private WebElement firstSubscribeButton;
@@ -20,38 +21,53 @@ public class MynewslettersPage extends PageBase {
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement myNewslettersElement;
 
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//button[@class='button default']")
+    private WebElement unsubscribeFirstNewsletterButton;
+
     @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[2]//div[1]//button[1]")
     private WebElement unsubscribeSecondNewsletterButton;
 
     @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[3]//div[1]//button[1]")
     private WebElement unsubscribeThirdNewsletterButton;
 
+    @FindBy(xpath = "//div[@class='account-newsletters-list']//div[4]//div[1]//button[1]")
+    private WebElement unsubscribeFourthNewsletterButton;
+
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement topRightArrow;
 
-    public MynewslettersPage addNewsletters() {
+    public MyNewslettersPage addNewsletters() {
         ProjectLogger.info("Add Newsletters.");
-        ElementUtils.clickOn(thirdSubscribeButton);
-        ElementUtils.clickOn(secondSubscribeButton);
-        ElementUtils.clickOn(firstSubscribeButton);
+        clickOn(thirdSubscribeButton);
+        clickOn(secondSubscribeButton);
+        clickOn(firstSubscribeButton);
         return this;
     }
 
     public boolean checkSubscribeNewsletters() {
         ProjectLogger.info("Check is My newsletters element is displayed.");
-        return ElementUtils.doesAppear(myNewslettersElement);
+        return doesAppear(myNewslettersElement);
     }
 
-    public MynewslettersPage unsubscribeNewsletters() {
+    public MyNewslettersPage unsubscribeNewsletters() {
         ProjectLogger.info("Unsubscribe two newsletters.");
-        ElementUtils.clickOn(unsubscribeThirdNewsletterButton);
-        ElementUtils.clickOn(unsubscribeSecondNewsletterButton);
+        clickOnWithJs(unsubscribeThirdNewsletterButton);
+        clickOnWithJs(unsubscribeSecondNewsletterButton);
         return this;
     }
 
-    public MynewslettersPage clickRightTopArrow() {
+    public MyNewslettersPage clickRightTopArrow() {
         ProjectLogger.info("Click top right arrow.");
-        ElementUtils.clickOn(topRightArrow);
+        clickOn(topRightArrow);
+        return this;
+    }
+
+    public MyNewslettersPage uncheckNewsletters() {
+        ProjectLogger.info("Uncheck Newsletters.");
+        clickOnWithJs(unsubscribeFourthNewsletterButton);
+        clickOnWithJs(unsubscribeThirdNewsletterButton);
+        clickOnWithJs(unsubscribeSecondNewsletterButton);
+        clickOnWithJs(unsubscribeFirstNewsletterButton);
         return this;
     }
 }

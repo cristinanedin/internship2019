@@ -21,6 +21,9 @@ public class Homepage extends PageBase {
     @FindBy(xpath = "//a[contains(text(),'Privacy')]")
     private WebElement privacyAndCookiePolicyLink;
 
+    @FindBy(xpath = "//a[contains(text(),'Terms and Conditions')]")
+    private WebElement termsAndConditionsLink;
+
     public boolean isTelegraphLogoDisplayed() {
         return doesAppear(telegraphLink);
     }
@@ -42,5 +45,10 @@ public class Homepage extends PageBase {
         ProjectLogger.info("Navigate to Privacy and Cookie Policy Page.");
         clickOnWithJs(privacyAndCookiePolicyLink);
         return new PrivacyAndCookiePolicyPage();
+    }
+
+    public void clickTermsAndConditions() {
+        ProjectLogger.info("Navigate to Terms and Conditions Page.");
+        clickOnWithJs(termsAndConditionsLink);
     }
 }

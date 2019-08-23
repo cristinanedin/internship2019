@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 public class HomePageTest extends TestBase {
 
     @Test(testName = "Open telegraph page",
-            description = "Open page and verify logo",
-            priority = 1)
+            description = "Open page and verify logo")
     public void checkHomePageLogo() {
 
         Homepage homepage = new Homepage().openPage();

@@ -14,43 +14,42 @@ public class SportPage extends PageBase {
     private WebElement sportSubscription;
 
 
-    @FindBy (xpath = "//div[@class='card-multi-button-list-element-text-container']/p[text()='£1 per week']")
+    @FindBy(xpath = "//div[@class='card-multi-button-list-element-text-container']/p[text()='£1 per week']")
     private WebElement onePoundWeekly;
 
 
-    @FindBy (xpath = "//div[@class='card-multi-button-list-element-text-container-body']/p[text()='Free for 30 days then billed as £4.33 per month']")
+    @FindBy(xpath = "//div[@class='card-multi-button-list-element-text-container-body']/p[text()='Free for 30 days then billed as £4.33 per month']")
     private WebElement fourPoundsMonthly;
 
 
-    @FindBy (xpath = "//div[@class='card-multi-button-list-element-text-container']/p[text()='£20 per year']")
+    @FindBy(xpath = "//div[@class='card-multi-button-list-element-text-container']/p[text()='£20 per year']")
     private WebElement twentyYearly;
 
-    @FindBy (xpath = "//div[@class='card-multi-button-list-element-text-container-body']/p[text()='Half-price sale']")
+    @FindBy(xpath = "//div[@class='card-multi-button-list-element-text-container-body']/p[text()='Half-price sale']")
     private WebElement halfPriceYearly;
 
 
-    public String getSportSubscription(){
+    public String getSportSubscription() {
 
         return ElementUtils.getElementText(sportSubscription);
     }
 
-    public String getWeeklyPayment(){
+    public String getWeeklyPayment() {
 
         return ElementUtils.getElementText(onePoundWeekly);
     }
 
-    public String getMonthlyPayment(){
+    public String getMonthlyPayment() {
         return ElementUtils.getElementText(fourPoundsMonthly);
     }
 
-    public String getYearlyPayment(){
+    public String getYearlyPayment() {
         return ElementUtils.getElementText(twentyYearly);
     }
 
-    public String getYearlyHalfPayment(){
+    public String getYearlyHalfPayment() {
         return ElementUtils.getElementText(halfPriceYearly);
     }
-
 
 
 }

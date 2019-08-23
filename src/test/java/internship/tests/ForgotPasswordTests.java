@@ -9,33 +9,27 @@ import org.testng.asserts.SoftAssert;
 public class ForgotPasswordTests extends TestBase {
 
     @Test(testName = "Forgot Password Valid Email Test",
-            description = "Testing Forgot Password on Login Page using Valid Email",
-            priority = 1)
+            description = "Testing Forgot Password on Login Page using Valid Email")
     public void TestingForgotPasswordValidEmail() {
         checkForgotPasswordTests(true);
     }
 
     @Test(testName = "Forgot Password Invalid Email",
-            description = "Testing Forgot Password Invalid Email",
-            priority = 1)
+            description = "Testing Forgot Password Invalid Email")
     public void TestingForgotPasswordInvalidEmail() {
         checkForgotPasswordTests(false);
     }
 
-    public void checkForgotPasswordTests(boolean validPassword)
-    {
+    private void checkForgotPasswordTests(boolean validPassword) {
         softAssert.set(new SoftAssert());
         LoginPage loginPage = new LoginPage().openPage();
         ResetPasswordPage resetPasswordPage = loginPage.clickLogInButtonHome()
-                                                       .clickForgotPassword();
+                .clickForgotPassword();
         softAssert.get().assertTrue(resetPasswordPage.isResetPasswordTextDisplayed(), "Failed to display forgot password page.");
-        if (validPassword)
-        {
+        if (validPassword) {
             resetPasswordPage.enterValidPassword().clickResetPasswordButton();
             softAssert.get().assertTrue(resetPasswordPage.isResetConfirmationDisplayed(), "Failed to display reset confirmation page.");
-        }
-        else
-        {
+        } else {
             resetPasswordPage.enterInvalidPassword().clickResetPasswordButton();
             softAssert.get().assertTrue(resetPasswordPage.isIncorrectEmailFormatDisplayed(), "Failed to display reset confirmation page.");
         }

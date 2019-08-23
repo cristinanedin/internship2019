@@ -21,8 +21,7 @@ public class SportPageTest extends TestBase {
     public static final String YEARLY_HALF_NOT_FOUND = " Yearly half payment not found ";
 
     @Test(testName = "Test text on sport page",
-            description = "Open sport page and check if the strings are matching",
-            priority = 1)
+            description = "Open sport page and check if the strings are matching")
     public void sportsTests() {
         SportPage sport = new SportPage().openPage();
         softAssert.get().assertEquals(sport.getSportSubscription(), SPORT_SUBSCRIPTION_TEXT, SUBSCRIPTION_NOT_FOUND);

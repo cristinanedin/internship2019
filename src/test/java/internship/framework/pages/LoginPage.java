@@ -70,8 +70,7 @@ public class LoginPage extends PageBase {
         return new ResetPasswordPage();
     }
 
-    public LoginPage clickMyAccountButton()
-    {
+    public LoginPage clickMyAccountButton() {
         ProjectLogger.info("Click My Account button.");
         ElementUtils.clickOn(loginMenu);
         ElementUtils.clickOn(myAccountLabel);
@@ -84,14 +83,12 @@ public class LoginPage extends PageBase {
         return doesAppear(myAccountLabel);
     }
 
-    public String isLoginTextDisplayed()
-    {
+    public String isLoginTextDisplayed() {
         ProjectLogger.info("Check if login text is displayed.");
         return ElementUtils.getElementText(loginTextElement);
     }
 
-    public String isFailedLoginTextDisplayed()
-    {
+    public String isFailedLoginTextDisplayed() {
         ProjectLogger.info("Check if failed login is displayed.");
         return ElementUtils.getElementText(failedLoginTextElement);
     }

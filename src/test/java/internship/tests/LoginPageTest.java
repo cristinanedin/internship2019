@@ -9,8 +9,7 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends TestBase {
 
     @Test(testName = "Open Login page",
-            description = "Open page and verify login",
-            priority = 1)
+            description = "Open page and verify login")
     public void checkLoginPage() {
         LoginPage loginPage = new LoginPage().openPage();
         loginPage.clickLogInButtonHome();

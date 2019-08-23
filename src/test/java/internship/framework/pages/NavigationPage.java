@@ -10,7 +10,7 @@ import static internship.framework.core.utility.ElementUtils.clickOn;
 
 public class NavigationPage extends PageBase {
 
-    @FindBy(xpath = "//span[contains(text(),'News')]")
+    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'News')]")
     private WebElement buttonNews;
 
     @FindBy(xpath = "//span[contains(text(),'Politics')]")

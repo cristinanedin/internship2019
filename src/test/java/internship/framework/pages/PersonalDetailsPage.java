@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class PersonalDetailsPage extends PageBase {
 
-    @FindBy(xpath = "//a[@class='header-middle-nav'][contains(text(),'Personal Details')]")
+    @FindBy(xpath = "//a[contains(text(),'Personal Details')]")
     private WebElement myDetailsButton;
 
     @FindBy(xpath = "//a[contains(text(),'Edit your details')]")
