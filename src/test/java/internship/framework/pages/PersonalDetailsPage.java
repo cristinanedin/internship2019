@@ -160,10 +160,10 @@ public class PersonalDetailsPage extends PageBase {
 
     public PersonalDetailsPage selectAllContactPreferences() {
         ProjectLogger.info("We check all contact preferences.");
-        ElementUtils.clickOn(firstCheckBoxElement);
-        ElementUtils.clickOn(secondCheckBoxElement);
-        ElementUtils.clickOn(thirdCheckBoxElement);
-        ElementUtils.clickOn(fourthCheckBoxElement);
+        ElementUtils.clickOnWithJs(fourthCheckBoxElement);
+        ElementUtils.clickOnWithJs(thirdCheckBoxElement);
+        ElementUtils.clickOnWithJs(secondCheckBoxElement);
+        ElementUtils.clickOnWithJs(firstCheckBoxElement);
         return this;
     }
 
@@ -199,8 +199,8 @@ public class PersonalDetailsPage extends PageBase {
     }
 
     public boolean areALLCheckboxesSelected() {
-        return isFirstCheckBoxSelected() && isSecondCheckBoxSelected()
-                && isThirdCheckBoxSelected() && isFourthCheckBoxSelected();
+        return isFourthCheckBoxSelected() && isThirdCheckBoxSelected()
+                && isSecondCheckBoxSelected() && isFirstCheckBoxSelected();
     }
 
     public PersonalDetailsPage clickChangeEmailLink() {

@@ -1,18 +1,17 @@
 package internship.tests;
 
 import internship.framework.core.TestBase;
-import internship.framework.core.utility.Driver;
 import internship.framework.core.utility.TestUtils;
 import internship.framework.pages.LoginPage;
 import internship.framework.pages.PersonalDetailsPage;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class PersonalDetailsTest extends TestBase {
     private final String TEST_EMAIL = "radu.telegraph+1@gmail.com";
     private final String TEST_PASSWORD = "qwer1234";
     private final String TEST_NEW_EMAIL = "radu.telegraph+2@gmail.com";
+    private final String LOGIN_TEXT = "Log in";
+    private final String WRONG_ACCOUNT_TEXT = "Sorry, we can't find an account with this email address and password.";
 
 
     @Test(testName = "Personal details test",
@@ -26,7 +25,6 @@ public class PersonalDetailsTest extends TestBase {
         personalDetailsPage.selectAllContactPreferences()
                 .navigateSubscriptionDetailsTab()
                 .navigatePersonalDetailsTab();
-        Driver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         softAssert.get().assertTrue(personalDetailsPage.areALLCheckboxesSelected(), "Not every checkbox is selected.");
         personalDetailsPage.selectAllContactPreferences();
         softAssert.get().assertAll();
@@ -38,9 +36,9 @@ public class PersonalDetailsTest extends TestBase {
         TestUtils.login(TEST_EMAIL, TEST_PASSWORD);
         changeEmailAddress(TEST_NEW_EMAIL);
         LoginPage loginPage = new LoginPage();
-        softAssert.get().assertTrue(loginPage.isLoginTextDisplayed().contains("Log in"));
+        softAssert.get().assertEquals(loginPage.isLoginTextDisplayed(), LOGIN_TEXT);
         loginPage(TEST_EMAIL);
-        softAssert.get().assertTrue(loginPage.isFailedLoginTextDisplayed().contains("Sorry"));
+        softAssert.get().assertEquals(loginPage.isFailedLoginTextDisplayed(), WRONG_ACCOUNT_TEXT);
         loginPage(TEST_NEW_EMAIL);
         changeEmailAddress(TEST_EMAIL);
         softAssert.get().assertAll();

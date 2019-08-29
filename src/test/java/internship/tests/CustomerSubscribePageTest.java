@@ -16,7 +16,8 @@ public class CustomerSubscribePageTest extends TestBase {
     private final static String EXPECTED_PER_WEEK3_TEXT = "From £2 per week";
     private final static String EXPECTED_PER_YEAR_TEXT = "£100 per year";
     private final static String EXPECTED_PER_YEAR2_TEXT = "£200 per year";
-    private final static String EXPECTED_PER_YEAR3_TEXT = "From £104 per yprivate";
+    private final static String EXPECTED_PER_YEAR3_TEXT = "From £104 per year";
+
     @Test(testName = "Subscribe test",
             description = "open subscribe page")
     public void subscribeTest() {

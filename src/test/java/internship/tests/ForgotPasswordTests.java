@@ -10,13 +10,13 @@ public class ForgotPasswordTests extends TestBase {
 
     @Test(testName = "Forgot Password Valid Email Test",
             description = "Testing Forgot Password on Login Page using Valid Email")
-    public void TestingForgotPasswordValidEmail() {
+    public void testingForgotPasswordValidEmail() {
         checkForgotPasswordTests(true);
     }
 
     @Test(testName = "Forgot Password Invalid Email",
             description = "Testing Forgot Password Invalid Email")
-    public void TestingForgotPasswordInvalidEmail() {
+    public void testingForgotPasswordInvalidEmail() {
         checkForgotPasswordTests(false);
     }
 
