@@ -14,7 +14,7 @@ public class LoginPage extends PageBase {
     @FindBy(xpath = "//div[@class='e-site-header-button e-site-header-button--menu']//a[@class='e-site-header-button__link']")
     private WebElement loginMenu;
 
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@id='email']")
     private WebElement emailInputField;
 
     @FindBy(xpath = "//input[@id='password']")

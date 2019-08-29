@@ -10,34 +10,34 @@ import static internship.framework.core.utility.ElementUtils.clickOn;
 
 public class NavigationPage extends PageBase {
 
-    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'News')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[1]//a[1]")
     private WebElement buttonNews;
 
-    @FindBy(xpath = "//span[contains(text(),'Politics')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[2]//a[1]")
     private WebElement buttonPolitics;
 
-    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'Sport')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[3]//a[1]")
     private WebElement buttonSport;
 
-    @FindBy(xpath = "//span[contains(text(),'Business')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[4]//a[1]")
     private WebElement buttonBusiness;
 
-    @FindBy(xpath = "//span[@class='e-navigation-primary-item__link-text e-navigation-border'][contains(text(),'Money')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[5]//a[1]")
     private WebElement buttonMoney;
 
-    @FindBy(xpath = "//span[contains(text(),'Opinion')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[6]//a[1]")
     private WebElement buttonOpinion;
 
-    @FindBy(xpath = "//span[contains(text(),'Tech')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[7]//a[1]")
     private WebElement buttonTechnology;
 
-    @FindBy(xpath = "//span[contains(text(),'Life & Style')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[8]//a[1]")
     private WebElement buttonLifestyle;
 
-    @FindBy(xpath = "//span[contains(text(),'Travel')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[9]//a[1]")
     private WebElement buttonTravel;
 
-    @FindBy(xpath = "//span[contains(text(),'Culture')]")
+    @FindBy(xpath = "//header[@id='navigation']//li[10]//a[1]")
     private WebElement buttonCulture;
 
     public String getSectionUrl() {

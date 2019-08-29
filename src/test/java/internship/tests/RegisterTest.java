@@ -11,6 +11,8 @@ import static internship.framework.core.runner.GlobalProperties.*;
 public class RegisterTest extends TestBase {
     private final String DUPLICATE_USERNAME = "stroeradu03@gmail.com";
     private final String DUPLICATE_PASSWORD = "qwer1234";
+    private final String REGISTER_TEXT = "Register";
+    private final String DUPLICATE_ADDRESS_TEXT = "A Telegraph account associated with this email address already exists. Please log in to continue.";
 
     @Test(testName = "Verify successful registration",
             description = "Testing successful registration")
@@ -32,8 +34,8 @@ public class RegisterTest extends TestBase {
         RegisterPage registerPage = new RegisterPage().openPage();
         registerPage.clickAcceptCookies();
         register(DUPLICATE_USERNAME, DUPLICATE_PASSWORD);
-        softAssert.get().assertTrue(registerPage.isConfirmRegisterTextDisplayed().contains("Register"));
-        softAssert.get().assertTrue(registerPage.isFailRegisterTextDisplayed().contains("address already exists"));
+        softAssert.get().assertEquals(registerPage.isConfirmRegisterTextDisplayed(), REGISTER_TEXT);
+        softAssert.get().assertEquals(registerPage.isFailRegisterTextDisplayed(), DUPLICATE_ADDRESS_TEXT);
         softAssert.get().assertAll();
     }
 

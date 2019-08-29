@@ -9,7 +9,7 @@ import static internship.framework.core.utility.ElementUtils.*;
 
 public class MyNewslettersPage extends PageBase {
 
-    @FindBy(xpath = "//div[@class='account-newsletters-list']//div[1]//div[1]//button[1]")
+    @FindBy(xpath = "//div[@class='account-newsletters-list']//button[@class='button primary']")
     private WebElement firstSubscribeButton;
 
     @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[1]//button[1]")
@@ -21,20 +21,23 @@ public class MyNewslettersPage extends PageBase {
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement myNewslettersElement;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//button[@class='button default']")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//button[@class='button default']")
     private WebElement unsubscribeFirstNewsletterButton;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[2]//div[1]//button[1]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[1]//button[1]")
     private WebElement unsubscribeSecondNewsletterButton;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters']//div[@class='account-newsletters-list']//div[3]//div[1]//button[1]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[3]//div[1]//button[1]")
     private WebElement unsubscribeThirdNewsletterButton;
 
-    @FindBy(xpath = "//div[@class='account-newsletters-list']//div[4]//div[1]//button[1]")
-    private WebElement unsubscribeFourthNewsletterButton;
+    @FindBy(xpath = "//h2[@class='my-newsletters']")
+    private WebElement topRightArrow;
 
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
-    private WebElement topRightArrow;
+    private WebElement topRightArrowToggled;
+
+    @FindBy(xpath = "//div[@class='account-newsletters-list']//button[@class='button default']")
+    private WebElement unCheckSubscribeNewsletterButton;
 
     public MyNewslettersPage addNewsletters() {
         ProjectLogger.info("Add Newsletters.");
@@ -50,24 +53,28 @@ public class MyNewslettersPage extends PageBase {
     }
 
     public MyNewslettersPage unsubscribeNewsletters() {
-        ProjectLogger.info("Unsubscribe two newsletters.");
-        clickOnWithJs(unsubscribeThirdNewsletterButton);
-        clickOnWithJs(unsubscribeSecondNewsletterButton);
+        ProjectLogger.info("Unsubscribe newsletters.");
+        clickOnWithJs(unsubscribeFirstNewsletterButton);
+        clickOnWithJs(unsubscribeFirstNewsletterButton);
+        clickOnWithJs(unsubscribeFirstNewsletterButton);
         return this;
     }
 
     public MyNewslettersPage clickRightTopArrow() {
         ProjectLogger.info("Click top right arrow.");
-        clickOn(topRightArrow);
+        clickOnWithJs(topRightArrowToggled);
         return this;
     }
 
-    public MyNewslettersPage uncheckNewsletters() {
-        ProjectLogger.info("Uncheck Newsletters.");
-        clickOnWithJs(unsubscribeFourthNewsletterButton);
-        clickOnWithJs(unsubscribeThirdNewsletterButton);
-        clickOnWithJs(unsubscribeSecondNewsletterButton);
-        clickOnWithJs(unsubscribeFirstNewsletterButton);
+    public MyNewslettersPage unClickRightTopArrow() {
+        ProjectLogger.info("UnClick top right arrow.");
+        clickOnWithJs(topRightArrow);
+        return this;
+    }
+
+    public MyNewslettersPage uncheckNewsletter() {
+        ProjectLogger.info("UnCheck newsletter.");
+        clickOnWithJs(unCheckSubscribeNewsletterButton);
         return this;
     }
 }
