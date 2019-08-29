@@ -9,19 +9,19 @@ import static internship.framework.core.utility.ElementUtils.*;
 
 public class MyNewslettersPage extends PageBase {
 
-    @FindBy(xpath = "//div[@class='account-newsletters-list']//button[@class='button primary']")
+    @FindBy(xpath = "//div[@class='account-newsletters-list']//div[1]//div[2]//button[1]")
     private WebElement firstSubscribeButton;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[1]//button[1]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[2]//button[1]")
     private WebElement secondSubscribeButton;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[3]//div[1]//button[1]")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[3]//div[2]//button[1]")
     private WebElement thirdSubscribeButton;
 
     @FindBy(xpath = "//h2[@class='my-newsletters toggled']")
     private WebElement myNewslettersElement;
 
-    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//button[@class='button default']")
+    @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[@class='account-newsletters-list']//div[1]//div[1]//button[1]")
     private WebElement unsubscribeFirstNewsletterButton;
 
     @FindBy(xpath = "//section[@class='centered-content account-newsletters recommended']//div[2]//div[1]//button[1]")
@@ -54,8 +54,8 @@ public class MyNewslettersPage extends PageBase {
 
     public MyNewslettersPage unsubscribeNewsletters() {
         ProjectLogger.info("Unsubscribe newsletters.");
-        clickOnWithJs(unsubscribeFirstNewsletterButton);
-        clickOnWithJs(unsubscribeFirstNewsletterButton);
+        clickOnWithJs(unsubscribeThirdNewsletterButton);
+        clickOnWithJs(unsubscribeSecondNewsletterButton);
         clickOnWithJs(unsubscribeFirstNewsletterButton);
         return this;
     }
